@@ -1,0 +1,109 @@
+name: 提交 GEO 案例
+about: 提交公开案例、企业实践、失败复盘或服务商案例线索
+title: "[Case] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提交案例。请尽量提供原始来源，并区分公开事实、案例方宣称和个人判断。不要提交客户隐私、账号凭证或未经授权的商业数据。
+
+  - type: input
+    id: case_title
+    attributes:
+      label: 案例名称
+      placeholder: 例如：某实验室仪器品牌 Reddit GEO 案例
+    validations:
+      required: true
+
+  - type: dropdown
+    id: case_type
+    attributes:
+      label: 案例类型
+      options:
+        - 企业公开案例
+        - 服务商案例
+        - 公众号 / 媒体文章
+        - 自主复现实验
+        - 失败案例
+        - 平台变化观察
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: source_name
+    attributes:
+      label: 来源名称
+      description: 作者、公众号、企业、服务商或媒体名称
+    validations:
+      required: true
+
+  - type: input
+    id: source_url
+    attributes:
+      label: 原始链接
+      description: 优先填写作者官网、机构官网或稳定转载
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: published_at
+    attributes:
+      label: 发布日期
+      placeholder: YYYY-MM-DD
+
+  - type: textarea
+    id: business_problem
+    attributes:
+      label: 业务问题
+      description: 企业原本遇到了什么问题，目标是提及、引用、流量、询盘还是订单？
+    validations:
+      required: true
+
+  - type: textarea
+    id: actions
+    attributes:
+      label: 具体实施动作
+      description: 按时间顺序说明做了什么，不要只写“做了 GEO 优化”
+    validations:
+      required: true
+
+  - type: textarea
+    id: claimed_results
+    attributes:
+      label: 案例方宣称的结果
+      description: 包含指标、时间范围、样本量和数据来源；未提供则写未提供
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可核验的证据
+      description: 原始回答、截图、公开页面、后台数据、测试问题集等
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: 风险、争议与其他解释
+      description: 例如同期广告、季节性、传统 SEO、伪装用户、归因不足等
+
+  - type: textarea
+    id: replication
+    attributes:
+      label: 如何复现
+      description: 可以怎样设计问题集、对照组、周期和成功标准？
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已尽量提供原始来源，而不是只提供二手截图
+          required: true
+        - label: 我已移除个人隐私、账号凭证和未获授权的商业数据
+          required: true
+        - label: 我理解收录不等于 GEO-Master 对案例结果背书
+          required: true
