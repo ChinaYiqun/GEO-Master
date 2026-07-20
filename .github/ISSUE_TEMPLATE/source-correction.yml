@@ -1,0 +1,73 @@
+name: 信源补充与纠错
+about: 补充原文链接、修正事实、质疑案例证据或报告失效内容
+title: "[Correction] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        GEO-Master 鼓励公开纠错。请指出具体文件、具体声明和支持证据，避免只写“我不同意”。
+
+  - type: input
+    id: file_url
+    attributes:
+      label: 涉及的仓库文件或页面
+      placeholder: https://github.com/ChinaYiqun/GEO-Master/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_claim
+    attributes:
+      label: 当前内容或声明
+      description: 请粘贴需要修正的短句，或说明具体章节
+    validations:
+      required: true
+
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: 问题类型
+      options:
+        - 原文链接失效
+        - 作者 / 日期 / 标题错误
+        - 数据口径错误
+        - 将案例方宣称写成事实
+        - 技术解释不准确
+        - 证据等级不合理
+        - 版权或隐私问题
+        - 平台规则已经变化
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_correction
+    attributes:
+      label: 建议修正内容
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: 支持证据与原始来源
+      description: 优先提供平台官方文档、作者原文、原始数据或可重复实验
+    validations:
+      required: true
+
+  - type: input
+    id: checked_at
+    attributes:
+      label: 最后核验日期
+      placeholder: YYYY-MM-DD
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我提供的来源可以公开访问或说明其访问限制
+          required: true
+        - label: 我没有提交未授权的个人信息或商业机密
+          required: true
