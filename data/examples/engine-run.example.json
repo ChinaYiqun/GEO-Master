@@ -1,0 +1,41 @@
+{
+  "run_id": "RUN-20260720-001",
+  "timestamp": "2026-07-20T10:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "platform": "Perplexity",
+  "model_or_mode": "standard",
+  "query_id": "B005",
+  "query": "[PRODUCT] vs [COMPETITOR PRODUCT]: which is better for business travel?",
+  "language": "en",
+  "country": "US",
+  "city": null,
+  "account_state": "logged_out",
+  "conversation_state": "new_chat",
+  "target_brand": "[BRAND]",
+  "target_product": "[PRODUCT]",
+  "brand_mentioned": true,
+  "brand_position": 3,
+  "official_site_cited": false,
+  "citations": [
+    {
+      "url": "https://example.com/independent-review",
+      "source_type": "review_site",
+      "citation_position": 1,
+      "supported_claims": [
+        "weight",
+        "charging speed"
+      ]
+    }
+  ],
+  "recommended": true,
+  "recommendation_level": "R3",
+  "fact_accuracy": "partial",
+  "sentiment": "neutral",
+  "errors": [
+    "The answer used an outdated battery capacity."
+  ],
+  "response_saved": true,
+  "response_location": "data/raw-responses/RUN-20260720-001.md",
+  "reviewer": "repository-owner",
+  "notes": "Example only. Replace placeholders and verify all facts before use."
+}
