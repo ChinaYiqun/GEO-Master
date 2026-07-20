@@ -2,11 +2,69 @@
 
 > 用于减少重复劳动。复制文件后替换示例数据，即可建立自己的 GEO 项目。
 
+## 推荐使用顺序
+
+```mermaid
+flowchart LR
+    A[品牌事实库] --> B[问题地图]
+    B --> C[基线问题集]
+    C --> D[内容 Brief]
+    D --> E[发布与社区参与]
+    E --> F[每周监测]
+    F --> G[询盘和订单归因]
+```
+
 ## 已发布模板
 
-### [AI 可见性基线问题集](baseline-query-set.csv)
+### 1. 事实与证据
 
-用于测试不同 AI 平台中的：
+#### [品牌事实库 YAML](brand-facts.yaml)
+
+统一管理：
+
+- 公司和品牌名称；
+- 别名；
+- 品牌定位；
+- 产品、型号和参数；
+- 认证；
+- 服务和门店；
+- 案例；
+- 生效、失效和争议状态；
+- 变更记录。
+
+它是企业内部事实源，不是 AI 平台保证读取的特殊文件。
+
+#### [声明与来源表](claims-and-sources.csv)
+
+每一条公开声明对应：
+
+- 官方来源；
+- 第三方来源；
+- 状态；
+- 置信度；
+- 生效日期；
+- 负责人；
+- 审核人；
+- 是否允许公开。
+
+### 2. 用户问题与基线
+
+#### [用户问题地图](question-map.csv)
+
+将真实问题连接到：
+
+- 用户意图；
+- 漏斗阶段；
+- 业务价值；
+- 当前内容；
+- 所需事实；
+- 所需证据；
+- 目标平台；
+- 负责人和下一步动作。
+
+#### [AI 可见性基线问题集](baseline-query-set.csv)
+
+30 条中英文问题，用于测试：
 
 - 品牌提及；
 - 官网引用；
@@ -15,30 +73,89 @@
 - 竞争对手覆盖；
 - 地域和语言差异。
 
-### [每周 GEO 监测表](weekly-monitoring.csv)
+### 3. 内容与社区执行
 
-用于保存每次运行的环境和结果，避免只保留截图。字段包括平台、问题、时间、地区、登录状态、品牌提及、引用 URL、推荐位置、准确性和备注。
+#### [GEO 内容 Brief](content-brief.md)
 
-### [完整 CASE 模板](../CASE-TEMPLATE.md)
+适用于官网文章、产品页、选型指南、案例、FAQ 和白皮书。包含：
+
+- 核心问题和直接答案；
+- 品牌实体；
+- 声明与来源；
+- 数据和对比要求；
+- 页面发现要求；
+- 多平台改写；
+- 发布前基线和复测；
+- CTA、合规和版权检查。
+
+#### [Reddit 社区参与检查清单](reddit-reply-checklist.md)
+
+帮助判断：
+
+- 是否应该回复；
+- 是否需要披露关系；
+- 回复是否真正解决问题；
+- 是否应该放链接；
+- 发布后如何维护；
+- 哪些做法属于伪装、刷帖和虚假口碑。
+
+### 4. 监测和商业归因
+
+#### [每周 GEO 监测表](weekly-monitoring.csv)
+
+保存每次运行的：
+
+- 平台；
+- 问题；
+- 时间和地区；
+- 登录状态；
+- 品牌提及；
+- 引用 URL；
+- 推荐位置；
+- 事实准确性；
+- 原始回答位置。
+
+#### [线索与订单归因表](lead-attribution.csv)
+
+区分：
+
+- AI referral；
+- 品牌搜索；
+- 直接访问；
+- 用户自报来源；
+- First touch；
+- Last touch；
+- 辅助渠道；
+- 询盘、报价和订单；
+- 归因置信度。
+
+商业数据必须脱敏后才能进入公开仓库。
+
+### 5. 案例与贡献
+
+#### [完整 CASE 模板](../CASE-TEMPLATE.md)
 
 适合自主实验、完整企业案例和长期追踪项目。
 
-### [第三方运营案例简版模板](../cases/third-party-operations/CASE-SUMMARY-TEMPLATE.md)
+#### [第三方运营案例简版模板](../cases/third-party-operations/CASE-SUMMARY-TEMPLATE.md)
 
 适合公众号文章、服务商案例、访谈、演讲和公开复盘的快速拆解。
 
-## 计划中的模板
+## 数据规范
+
+- [实验数据目录说明](../data/README.md)
+- [AI 单次运行 JSON Schema](../schemas/engine-run.schema.json)
+- [标准运行示例](../data/examples/engine-run.example.json)
+
+## 仍在计划中的模板
 
 | 文件 | 用途 |
 |---|---|
-| `brand-facts.yaml` | 品牌名称、定位、产品、参数、来源和状态 |
-| `claims-and-sources.csv` | 每项品牌声明对应的证据和更新时间 |
-| `question-map.csv` | 用户问题、意图、漏斗阶段和现有内容覆盖 |
-| `content-brief.md` | 一篇 GEO 内容的事实、结构、来源和验证要求 |
-| `reddit-reply-checklist.md` | 社区参与前的相关性、披露和合规检查 |
 | `citation-audit.csv` | AI 引用域名、页面、位置和支持的声明 |
-| `lead-attribution.csv` | 访问、品牌搜索、询盘和订单归因 |
 | `case-intake-form.md` | 收集第三方案例所需的原始信息 |
+| `service-provider-scorecard.csv` | GEO 服务商方案和验收对比 |
+| `website-audit.csv` | 官网事实、结构、旧页面和索引问题 |
+| `monthly-report.md` | 月度问题、平台、内容、引用和商业复盘 |
 
 ## 使用建议
 
@@ -47,28 +164,36 @@
 3. 新对话和多轮对话分开记录；
 4. 原始回答和截图保留在私有或授权目录；
 5. 商业数据脱敏后再提交到公开仓库；
-6. 不要用空白值伪装成 0；缺失数据写 `unknown` 或 `not_provided`。
+6. 不要用空白值伪装成 0；
+7. 事实、问题、内容和监测数据使用稳定 ID 连接；
+8. 修改模板字段时记录版本，避免历史数据失去兼容性。
 
-## 数据状态建议
+## 缺失值和状态
 
 ```text
-verified      已通过可靠来源确认
-claimed       案例方宣称
-observed      单次或少量观察
-reproduced    已多次重复出现
-unknown       尚未获得数据
+verified       已通过可靠来源确认
+claimed        案例方宣称
+observed       单次或少量观察
+reproduced     已多次重复出现
+pending        正在核验
+expired        已过期
+unknown        尚未获得数据
+not_provided   案例方没有提供
 not_applicable 不适用
 ```
+
+不要把 `unknown`、空白和 `0` 混为一谈。
 
 ## 贡献新模板
 
 模板应该：
 
 - 有明确使用场景；
-- 提供一行示例数据；
+- 提供至少一行示例数据；
 - 解释每个关键字段；
 - 避免收集不必要的个人信息；
 - 能够被其他品牌直接 Fork 使用；
-- 配套一个 Playbook 或案例说明。
+- 配套一个 Playbook 或案例说明；
+- 从本 README、相关案例或 Playbook 中添加入口。
 
-建议先阅读 [AI 可见性基线测试](../playbooks/ai-visibility-baseline.md)。
+第一次使用建议从 [AI 可见性基线测试](../playbooks/ai-visibility-baseline.md) 开始。
