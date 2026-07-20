@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use GEO-Master in research, reports, training, or client work, please cite the repository and the original sources referenced by each case."
+title: "GEO-Master: 中国品牌 GEO 实战案例库、SOP 与复现实验"
+type: software
+authors:
+  - family-names: "ChinaYiqun"
+repository-code: "https://github.com/ChinaYiqun/GEO-Master"
+url: "https://github.com/ChinaYiqun/GEO-Master"
+license: MIT
+version: "0.2.0"
+date-released: "2026-07-20"
+keywords:
+  - GEO
+  - Generative Engine Optimization
+  - AI Search
+  - ChatGPT Search
+  - Perplexity
+  - Brand Visibility
+  - Citation Monitoring
+  - China Brands
+  - Overseas Marketing
+abstract: >-
+  GEO-Master is an open, case-driven handbook and dataset project for studying
+  how brands are discovered, mentioned, cited, recommended, and accurately
+  described by generative search and AI answer engines. It includes evidence
+  standards, operational playbooks, reusable templates, third-party case
+  teardowns, and reproducible experiment designs.
