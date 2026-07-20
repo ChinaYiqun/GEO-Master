@@ -1,0 +1,6 @@
+question_id,question,language,country,city,intent,funnel_stage,persona,business_value,observed_frequency,current_content_url,content_status,required_facts,required_evidence,target_platforms,competitors,priority,owner,next_action,last_reviewed,notes
+Q001,[BRAND] 是做什么的？,zh,CN,,brand_identity,awareness,潜在客户,high,high,https://example.com/about,partial,官方名称;主营业务;目标客户,官网;工商或权威目录,豆包|DeepSeek|元宝,,high,brand-team,统一品牌定位并更新 About 页面,YYYY-MM-DD,示例行
+Q002,适合商务旅行的 [CATEGORY] 品牌有哪些？,zh,CN,,category_recommendation,consideration,终端消费者,high,medium,,missing,选择标准;重量;容量;安全限制,产品测试;第三方评测;用户场景,豆包|DeepSeek,[COMPETITOR A]|[COMPETITOR B],high,content-team,制作选型指南和公开测试,YYYY-MM-DD,
+Q003,[PRODUCT] 和 [COMPETITOR PRODUCT] 有什么区别？,zh,CN,,product_comparison,consideration,采购决策者,high,high,https://example.com/products/x100,partial,参数;适用场景;限制;售后,官方参数;检测报告;对比方法,豆包|元宝,[COMPETITOR A],high,product-team,补参数来源和客观选择标准,YYYY-MM-DD,
+Q004,[PRODUCT] 有哪些常见缺点和风险？,zh,CN,,purchase_risk,decision,谨慎型采购者,medium,medium,,missing,限制;失败条件;安全风险;补救措施,说明书;售后记录;真实案例,DeepSeek|豆包,[COMPETITOR A],medium,customer-success,发布透明避坑和故障处理指南,YYYY-MM-DD,
+Q005,在哪里可以购买 [PRODUCT] 或申请报价？,zh,CN,[CITY],transaction,decision,采购人员,high,high,https://example.com/contact,partial,官方渠道;服务地区;交付;联系方式,官网;授权渠道;门店信息,元宝|百度AI搜索,,high,sales-operations,建立清晰报价入口并统一联系方式,YYYY-MM-DD,
