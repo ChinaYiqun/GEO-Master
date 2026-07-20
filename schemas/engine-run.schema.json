@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChinaYiqun/GEO-Master/schemas/engine-run.schema.json",
+  "title": "GEO-Master AI Engine Run",
+  "description": "A single recorded run of a query on an AI answer or generative search platform.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "timestamp",
+    "platform",
+    "query_id",
+    "query",
+    "language",
+    "country",
+    "account_state",
+    "conversation_state",
+    "brand_mentioned",
+    "official_site_cited",
+    "recommended",
+    "fact_accuracy",
+    "response_saved"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique run identifier, for example RUN-20260720-001."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone, for example Asia/Shanghai."
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_or_mode": {
+      "type": ["string", "null"]
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "country": {
+      "type": "string",
+      "minLength": 2
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "account_state": {
+      "type": "string",
+      "enum": ["logged_in", "logged_out", "unknown"]
+    },
+    "conversation_state": {
+      "type": "string",
+      "enum": ["new_chat", "multi_turn", "unknown"]
+    },
+    "target_brand": {
+      "type": ["string", "null"]
+    },
+    "target_product": {
+      "type": ["string", "null"]
+    },
+    "brand_mentioned": {
+      "type": "boolean"
+    },
+    "brand_position": {
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "official_site_cited": {
+      "type": "boolean"
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "source_type"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "official_website",
+              "official_documentation",
+              "government",
+              "standard_body",
+              "research",
+              "news_media",
+              "industry_media",
+              "review_site",
+              "community",
+              "retailer",
+              "distributor",
+              "other",
+              "unknown"
+            ]
+          },
+          "citation_position": {
+            "type": ["integer", "null"],
+            "minimum": 1
+          },
+          "supported_claims": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "default": []
+    },
+    "recommended": {
+      "type": "boolean"
+    },
+    "recommendation_level": {
+      "type": "string",
+      "enum": ["R0", "R1", "R2", "R3", "R4", "R5", "unknown"]
+    },
+    "fact_accuracy": {
+      "type": "string",
+      "enum": ["accurate", "partial", "incorrect", "outdated", "conflicting", "unknown"]
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "neutral", "negative", "mixed", "unknown"]
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "response_saved": {
+      "type": "boolean"
+    },
+    "response_location": {
+      "type": ["string", "null"]
+    },
+    "reviewer": {
+      "type": ["string", "null"]
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}
