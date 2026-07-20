@@ -1,139 +1,326 @@
 # 国内 GEO 原文与信源索引
 
-> 收集国内 GEO 公众号、作者个人站和稳定转载。**收录不代表 GEO-Master 对文章结论、案例数据或服务能力背书。**
+> 收集国内 GEO 公众号、作者个人站、机构官网和稳定转载。**收录不代表 GEO-Master 对文章结论、案例数据或服务能力背书。**
+
+最后核验：2026-07-20
 
 ## 链接保存规则
 
-微信公众号搜索链接常带 `timestamp` 和 `signature`，可能失效。本仓库按以下顺序保存信源：
+微信公众号搜索链接常带 `timestamp` 和 `signature`，可能在数月后失效。本仓库按以下顺序保存信源：
 
-1. 作者个人站 / 机构官网原文；
+1. 作者个人站或机构官网原文；
 2. 明确注明原作者的稳定转载；
 3. 微信公众号永久链接；
 4. 微信搜索临时链接；
-5. 只有标题时，保存「公众号名 + 标题 + 日期」，便于进公众号反查。
+5. 只有标题时，保存「公众号名 + 标题 + 日期」，便于进入公众号反查。
 
-每篇进入案例库后，还要补充：发布日期、作者、内容类型、结果宣称、证据等级和最后核验日期。
+每篇进入案例库后，还要补充：发布日期、作者、内容类型、结果宣称、证据等级、版权状态和最后核验日期。
+
+## 阅读状态
+
+| 状态 | 含义 |
+|---|---|
+| 已有稳定原文 | 作者站、机构站或稳定转载可以打开 |
+| 微信临时链接 | 当前可能可用，但签名和时间戳可能过期 |
+| 标题可反查 | 暂无稳定链接，可在公众号历史文章搜索完整标题 |
+| 已拆解 | 已转化成 GEO-Master 案例、Playbook 或模板 |
+| 待核验 | 已收集线索，尚未逐条核对内容与数据 |
 
 ---
 
 # 老钱聊GEO
 
-定位：认知纠偏、小白入门、企业获客、官网结构、豆包与 DeepSeek 等国内 AI 平台现象解释。
+定位：偏小白认知、企业获客、AI 推荐现象和服务商选择。常用结构是：
 
-| 日期 | 原文标题 | 原文 / 存档入口 | 仓库状态 |
-|---|---|---|---|
-| 2026-06-27 | 为什么企业获客越来越贵？真正涨价的不是广告，而是流量入口 | [微信临时链接](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpLqPdazdI8JcQdeVTv0zJsg6KC-krbgBCGtwk99CHlOPii8YcNttUvlYBq3Xal6eU8QX9KpgdKKPCejw5hXB4XgdGjqLQTgj&new=1) | 待全文核验 |
-| 2026-06-09 | 一个被AI频繁推荐的官网，长什么样？ | [稳定转载：优网科技（注明来源为老钱聊GEO）](https://www.uweb.net.cn/zhishiku/wangzhanxitongAIjieru/36223.html) · [微信临时链接](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpL*qPdazdI8JfNH9j8gJcLpDyADXZpf0AYAftsMCV1MBkmCDVJjJE3PuUFMJfu6LaTE7k6Hg9dOsuBG8BMF2HcIyR7tnRoTwPG&new=1) | [TP-005 已拆解](../cases/third-party-operations/cases/TP-005-laoqian-ai-friendly-website/README.md) |
-| 2026-06-11 | 为什么同样问豆包，每个人看到的答案可能不一样？ | [微信临时链接](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpL*qPdazdI8JcD0mS8wyJwzYzGCyR2e1D-zsUqKT4WXtRft-pZs-YnZhFtqkA1V8EcDJHiKOFZsHOVm1W6fwPfl31Y5sYUqYLR&new=1) | 待全文核验 |
-| 2026-06-12 | 百度排名第一，为什么豆包还是不推荐你？ | 公众号内搜索完整标题 | 待原文链接 |
-| 2026-06-14 | 为什么你的企业明明很优秀，豆包却根本不认识你？ | 公众号内搜索完整标题 | 待原文链接 |
-| 2026-06-19 | GEO火了，但90%的企业可能选错了服务商 | [微信临时链接](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpLqPdazdI8JeyDcy6hrlv9WnidbNiWBetVnCchWzJEGFD0vgM9ijVeLJFGYqqYbWAkAYgdw8dd0uWsEMNTq0aDneUhayQk&new=1) | 待全文核验 |
+```text
+现象提问
+→ 指出常见错误
+→ 给出通俗解释
+→ 提供行动建议
+```
 
-## 老钱系列适合怎么用
+这类内容适合进入：
 
-适合转化为：
+- `explainers/`：认知纠偏；
+- `cases/third-party-operations/`：方法拆解；
+- `playbooks/`：将文章建议补成执行步骤；
+- `myths/`：纠正常见营销话术。
 
-- `GEO Myths`：把“AI 喜欢、AI 信任”还原为抓取、实体识别、检索、引用与稳定性问题；
-- 官网改造检查表；
-- 国内 AI 回答差异实验；
-- GEO 服务商选型与反营销话术核验。
+## 文章索引
 
-不应直接把“研究了大量网站”“AI 频繁推荐”等描述当作已验证规律，除非补充样本、查询集、平台、地区、运行次数和原始回答。
+### 1. 为什么企业获客越来越贵？真正涨价的不是广告，而是流量入口
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-27
+- 类型：流量入口与企业获客认知
+- 状态：微信临时链接
+- [微信临时原文入口](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpLqPdazdI8JcQdeVTv0zJsg6KC-krbgBCGtwk99CHlOPii8YcNttUvlYBq3Xal6eU8QX9KpgdKKPCejw5hXB4XgdGjqLQTgj&new=1)
+- 适合转化：`GEO vs 广告 vs SEO` 获客漏斗解释。
+
+### 2. 一个被AI频繁推荐的官网，长什么样？
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-09
+- 类型：官网内容结构
+- 状态：已有稳定转载、已拆解
+- [稳定转载：优网科技，页面注明来源为“老钱聊GEO”](https://www.uweb.net.cn/zhishiku/wangzhanxitongAIjieru/36223.html)
+- [微信临时原文入口](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpL*qPdazdI8JfNH9j8gJcLpDyADXZpf0AYAftsMCV1MBkmCDVJjJE3PuUFMJfu6LaTE7k6Hg9dOsuBG8BMF2HcIyR7tnRoTwPG&new=1)
+- [GEO-Master 拆解：TP-005](../cases/third-party-operations/cases/TP-005-laoqian-ai-friendly-website/README.md)
+- 适合转化：首页、产品页、案例、FAQ 和行业内容改造 SOP。
+
+### 3. 为什么同样问豆包，每个人看到的答案可能不一样？
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-11
+- 类型：回答波动、个性化与实验环境
+- 状态：微信临时链接
+- [微信临时原文入口](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpL*qPdazdI8JcD0mS8wyJwzYzGCyR2e1D-zsUqKT4WXtRft-pZs-YnZhFtqkA1V8EcDJHiKOFZsHOVm1W6fwPfl31Y5sYUqYLR&new=1)
+- 适合转化：为什么 GEO 测试必须记录地区、登录状态、会话上下文和运行次数。
+- 相关材料：[AI 可见性基线测试](../playbooks/ai-visibility-baseline.md)
+
+### 4. 百度排名第一，为什么豆包还是不推荐你？
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-12
+- 类型：SEO 排名与 AI 推荐差异
+- 状态：标题可反查
+- 反查方法：进入公众号“老钱聊GEO”，搜索完整标题。
+- 适合转化：抓取、索引、召回、引用和推荐不是同一环节。
+
+### 5. 为什么你的企业明明很优秀，豆包却根本不认识你？
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-14
+- 类型：品牌实体与公开事实不足
+- 状态：标题可反查
+- 反查方法：进入公众号“老钱聊GEO”，搜索完整标题。
+- 适合转化：品牌事实库、公开信源一致性、品牌身份问题集。
+
+### 6. GEO火了，但90%的企业可能选错了服务商
+
+- 公众号：老钱聊GEO
+- 日期：2026-06-19
+- 类型：服务商选择与项目验收
+- 状态：微信临时链接
+- [微信临时原文入口](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=Qprhqn41spehel45td0PYGNKvTIvWRpLqPdazdI8JeyDcy6hrlv9WnidbNiWBetVnCchWzJEGFD0vgM9ijVeLJFGYqqYbWAkAYgdw8dd0uWsEMNTq0aDneUhayQk&new=1)
+- 适合转化：GEO 服务商验收表、风险承诺清单、基线与复测要求。
+
+## 老钱聊GEO的仓库使用原则
+
+- 保留通俗表达，但不把拟人化描述当成平台官方机制；
+- “AI 喜欢”“AI 信任”改写为可以测试的假设；
+- 没有公开样本、问题集和运行次数时，结果标为经验观察；
+- 将文章建议补成页面模板、指标、对照组和复测周期；
+- 不因标题具有传播力就直接接受因果关系。
 
 ---
 
 # 招财兔 GEO / 李金龙
 
-定位：国内 GEO 体系化教程，覆盖平台地图、问题地图、品牌事实库、内容矩阵、监测、团队协作、本地优化等主题。
+定位：国内 GEO 体系化教程，采用编号连载，覆盖概念、问题地图、品牌事实库、公众号、百度 AI 搜索、监测、团队协作和本地 GEO。
 
-作者个人站归档显示，第 1–100 篇主要集中在 **2026-05-19** 发布。内容可作为目录和执行框架参考，但大量文章使用高度相似结构，阅读时要同时检查占位符、重复内容和证据不足问题。
+作者站与归档：
 
-## 重点原文
+- [作者个人站](https://www.lijinlong.cc/)
+- [GEO 优化文章标签页](https://www.lijinlong.cc/tag/geo%E4%BC%98%E5%8C%96/)
+- [站点归档](https://www.lijinlong.cc/guidang)
 
-| 编号 | 原文标题 | 稳定原文 | 仓库状态 |
-|---:|---|---|---|
-| 1 | 国内 AI GEO 到底是什么？企业为什么必须从“搜索排名”升级到“AI 答案占位” | [作者个人站](https://www.lijinlong.cc/geo-youhua/4759.html) | 已核验 |
-| 2 | 国内 AI 平台地图：百度 AI、腾讯元宝、豆包、Kimi、秘塔分别吃什么内容？ | [作者个人站](https://www.lijinlong.cc/geo-youhua/4760.html) | 已核验 |
-| 3 | AI 问题地图怎么做？企业 GEO 内容规划不能再只靠关键词 | [一网推转载](https://www.yiwangtui.com/news/show.php?itemid=42770) | 待持续检查 |
-| 4 | 国内 AI GEO 内容矩阵怎么搭？官网、公众号、知乎、百家号、短视频如何分工 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4762.html) | 已核验 |
-| 6 | 公众号如何支持腾讯元宝和微信生态 GEO？企业不能只发新闻稿 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4764.html) | 已核验 |
-| 11 | 品牌事实库怎么搭建？先让 AI 说对你是谁 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4769.html) | [TP-006 已拆解](../cases/third-party-operations/cases/TP-006-lijinlong-brand-fact-base/README.md) |
-| 13 | 百度 AI 搜索优化怎么做？官网、百科、百家号如何配合 | 公众号“招财兔 GEO”搜索“第13篇” | 待微信永久链接 |
-| 65 | GEO 和 AEO 有什么区别？从问答优化走向生成式答案优化 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4823.html) | 已核验 |
-| 77 | GEO 风险怎么控制？别承诺平台一定推荐 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4835.html) · [一网推转载](https://www.yiwangtui.com/news/show.php?itemid=42723) | 待案例化 |
-| 97 | GEO 年度计划怎么做？从基础建设到行业权威 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4855.html) · [71推转载](https://www.71tui.cn/news/98) | 待案例化 |
-| 100 | GEO 如何做本地优化？地域信源和门店信息要打通 | [作者个人站](https://www.lijinlong.cc/geo-youhua/4858.html) | 已核验 |
+## 有稳定链接的重点文章
 
-完整归档：
+### 第 1 篇：国内 AI GEO 到底是什么？企业为什么必须从“搜索排名”升级到“AI 答案占位”
 
-- [李金龙 GEO 优化标签页](https://www.lijinlong.cc/tag/geo%E4%BC%98%E5%8C%96/)
-- [李金龙文章归档](https://www.lijinlong.cc/guidang)
+- [作者个人站原文](https://www.lijinlong.cc/geo-youhua/4759.html)
+- 类型：概念与企业价值
+- 状态：稳定原文
+- 使用建议：作为国内 GEO 概念入口，不把“答案占位”理解为固定广告位或保证排名。
 
-## 第 72–100 篇：按执行逻辑重组
+### 第 3 篇：AI 问题地图怎么做？企业 GEO 内容规划不能再只靠关键词
 
-> 不再按编号机械阅读，改成“团队治理 → 诊断监测 → 内容与转化 → 资产与长期运营”。
+- [一网推转载](https://www.yiwangtui.com/news/show.php?itemid=42770)
+- 类型：用户问题地图、内容规划
+- 状态：稳定转载
+- 使用建议：可转化为 `question-map.csv`，但需要补销售、客服、搜索控制台和社区数据。
 
-### A. 团队与项目治理
+### 第 6 篇：公众号如何支持腾讯元宝和微信生态 GEO？企业不能只发新闻稿
 
-- [72 技术团队如何支持 GEO？网站可抓取是基础](https://www.lijinlong.cc/geo-youhua/4830.html)
-- [73 设计团队如何支持 GEO？图表要服务信息而不是装饰](https://www.lijinlong.cc/geo-youhua/4831.html)
-- [74 GEO 项目启动会怎么开？先统一目标和事实口径](https://www.lijinlong.cc/geo-youhua/4832.html)
-- [75 GEO 月度复盘怎么做？看问题、平台、内容、引用四张表](https://www.lijinlong.cc/geo-youhua/4833.html)
-- [76 GEO 报告怎么写？客户要看问题解决进度](https://www.lijinlong.cc/geo-youhua/4834.html)
-- [77 GEO 风险怎么控制？别承诺平台一定推荐](https://www.lijinlong.cc/geo-youhua/4835.html)
-- [96 GEO 团队怎么分工？内容、技术、设计、销售都要参与](https://www.lijinlong.cc/geo-youhua/4854.html)
-- [97 GEO 年度计划怎么做？从基础建设到行业权威](https://www.lijinlong.cc/geo-youhua/4855.html)
-- [98 GEO 服务体系怎么理解？不是发文，而是增长系统](https://www.lijinlong.cc/geo-youhua/4856.html)
-- [99 招财兔 GEO 适合哪些企业？先看业务清晰度和内容基础](https://www.lijinlong.cc/geo-youhua/4857.html)
+- [作者个人站原文](https://www.lijinlong.cc/geo-youhua/4764.html)
+- 类型：公众号、微信生态、腾讯元宝
+- 状态：稳定原文
+- 使用建议：分析公众号在品牌事实、案例、FAQ 和更新记录中的作用，不假设元宝必定抓取每篇文章。
 
-### B. 监测、诊断与纠错
+### 第 11 篇：品牌事实库怎么搭建？先让 AI 说对你是谁
 
-- [78 AI 说错企业怎么办？用事实澄清块持续修正](https://www.lijinlong.cc/geo-youhua/4836.html)
-- [79 AI 不提品牌怎么办？先检查问题覆盖和信源强度](https://www.lijinlong.cc/geo-youhua/4837.html)
-- [80 AI 只提竞品怎么办？拆解竞品信源再补内容](https://www.lijinlong.cc/geo-youhua/4838.html)
-- [81 AI 引用错页面怎么办？优化页面标题、结构和内链](https://www.lijinlong.cc/geo-youhua/4839.html)
-- [82 AI 只引用第三方不引用官网怎么办？官网要补事实块](https://www.lijinlong.cc/geo-youhua/4840.html)
-- [83 GEO 数据看板怎么做？六个指标就够开始](https://www.lijinlong.cc/geo-youhua/4841.html)
+- [作者个人站原文](https://www.lijinlong.cc/geo-youhua/4769.html)
+- [微信公众号永久入口](http://mp.weixin.qq.com/s?__biz=MzA3NTY5ODgzNw==&mid=2452677444&idx=5&sn=4f0f081afbb10693c6e02ce987dee4cc&chksm=891720a08e686f13c24dcaf355cb60f600dbb664849a976f4c807cd80b776b3a7b2074707561#rd)
+- 类型：品牌事实、信息一致性
+- 状态：稳定原文、已拆解
+- [GEO-Master 拆解：TP-006](../cases/third-party-operations/cases/TP-006-lijinlong-brand-fact-base/README.md)
+- 使用建议：将概念补成 YAML、声明来源表、审核流程和版本状态。
 
-### C. 问题、内容与销售转化
+### 第 13 篇：百度 AI 搜索优化怎么做？官网、百科、百家号如何配合
 
-- [84 GEO 关键词库还要不要？要，但要升级成问题库](https://www.lijinlong.cc/geo-youhua/4842.html)
-- [85 GEO 内容地图怎么和销售漏斗结合？每个阶段都有内容](https://www.lijinlong.cc/geo-youhua/4843.html)
-- [86 GEO 如何做行业词？行业词要搭配解决方案页](https://www.lijinlong.cc/geo-youhua/4844.html)
-- [87 GEO 如何做品牌词？品牌词要让 AI 说全说准](https://www.lijinlong.cc/geo-youhua/4845.html)
-- [88 GEO 如何做竞品词？重点不是攻击，而是建立选择标准](https://www.lijinlong.cc/geo-youhua/4846.html)
-- [89 GEO 如何做长尾问题？长尾问题最接近真实需求](https://www.lijinlong.cc/geo-youhua/4847.html)
-- [90 GEO 如何做行业白皮书？白皮书要有章节和方法论](https://www.lijinlong.cc/geo-youhua/4848.html)
-- [91 GEO 如何做案例合集？案例合集比单篇案例更有信源价值](https://www.lijinlong.cc/geo-youhua/4849.html)
-- [92 GEO 如何做选型指南？用户越接近决策越需要指南](https://www.lijinlong.cc/geo-youhua/4850.html)
-- [93 GEO 如何做避坑指南？风险型内容能提升信任](https://www.lijinlong.cc/geo-youhua/4851.html)
+- 类型：百度生态内容分工
+- 状态：微信临时链接
+- [微信临时原文入口](http://mp.weixin.qq.com/s?src=11&timestamp=1784255388&ver=6847&signature=iy7zKx9h-eeOIHI-T9gDbJxZptFK0t1RIrXwU9rwtK-vc8bRcWsECTgOnDUmZ6DClEvyuFD0LnKs5-Oj-7*03lHqShkxnz4XB01e1WCs20qnAb4w3ygAvP4AlrXdYOWM&new=1)
+- 使用建议：分别定义官网、百科和百家号承担的事实类型，不机械复制同一篇内容。
 
-### D. 方法资产化与本地部署
+### 第 65 篇：GEO 和 AEO 有什么区别？从问答优化走向生成式答案优化
 
-- [94 GEO 如何做培训课件？把方法论变成可传播资产](https://www.lijinlong.cc/geo-youhua/4852.html)
-- [95 GEO 100 篇内容怎么规划？先搭栏目，再铺选题](https://www.lijinlong.cc/geo-youhua/4853.html)
-- [100 GEO 如何做本地优化？地域信源和门店信息要打通](https://www.lijinlong.cc/geo-youhua/4858.html)
+- [作者个人站原文](https://www.lijinlong.cc/geo-youhua/4823.html)
+- 类型：GEO / AEO 概念边界
+- 状态：稳定原文
+- 使用建议：用于术语表，避免继续制造大量缺乏一致定义的新缩写。
 
-## 使用注意
+### 第 77 篇：GEO 风险怎么控制？别承诺平台一定推荐
 
-李金龙站点随后发布了大量“城市名 + GEO 优化公司 / 服务商选择指南”页面。它们可用于研究规模化本地内容生产，但不能自动证明：
+- [一网推转载](https://www.yiwangtui.com/news/show.php?itemid=42723)
+- 类型：项目风险和服务承诺
+- 状态：稳定转载
+- 使用建议：适合转化为合同验收条款、服务商红线和风险提示。
 
-- 对应城市存在真实团队或项目经验；
-- 页面被目标 AI 平台稳定引用；
-- 内容带来了线索或成交；
-- 大批量地域页是有效而非重复内容。
+### 第 97 篇：GEO 年度计划怎么做？从基础建设到行业权威
 
-后续应单独建立“规模化地域 GEO 内容”复现实验，比较真实本地数据页与模板替换页的收录、引用、准确率和商业转化。
+- [71推转载](https://www.71tui.cn/news/98)
+- 类型：年度运营规划
+- 状态：稳定转载
+- 使用建议：按季度组织事实底座、问题覆盖、平台内容和监测，不将发文数量作为唯一 KPI。
+
+### 第 100 篇：GEO 如何做本地优化？地域信源和门店信息要打通
+
+- [作者个人站原文](https://www.lijinlong.cc/geo-youhua/4858.html)
+- 类型：本地 GEO、地域实体和门店信息
+- 状态：稳定原文
+- 使用建议：检查门店名称、地址、电话、服务范围、营业时间和本地第三方目录的一致性。
+
+## 第 72–100 篇：按执行逻辑重新分组
+
+原始编号适合连载阅读，但不适合作为企业项目目录。GEO-Master 将其重组为四条主线。
+
+### A. 团队治理与项目管理
+
+| 编号 | 标题 | 仓库中的用途 |
+|---:|---|---|
+| 72 | 技术团队如何支持 GEO？ | 抓取、页面、数据、Schema 和监测职责 |
+| 73 | 设计团队如何支持 GEO？图表要服务信息而不是装饰 | 信息图、表格和可读性检查 |
+| 74 | GEO 项目启动会怎么开？先统一目标和事实口径 | 项目启动清单和目标定义 |
+| 75 | GEO 月度复盘怎么做？看问题、平台、内容、引用四张表 | 月报结构 |
+| 76 | GEO 报告怎么写？客户要看问题解决进度 | 服务交付与验收报告 |
+| 77 | GEO 风险怎么控制？别承诺平台一定推荐 | 合同和承诺红线 |
+| 94 | GEO 如何做培训课件？把方法论变成可传播资产 | 内训和销售培训 |
+| 95 | GEO 100 篇内容怎么规划？先搭栏目，再铺选题 | 内容栏目和节奏 |
+| 96 | GEO 团队怎么分工？内容、技术、设计、销售都要参与 | RACI 分工 |
+| 97 | GEO 年度计划怎么做？从基础建设到行业权威 | 年度路线图 |
+| 98 | GEO 服务体系怎么理解？不是发文，而是增长系统 | 服务范围和交付体系 |
+| 99 | GEO 适合哪些企业？先看业务清晰度和内容基础 | 项目准入评估 |
+
+### B. 诊断、监测与纠错
+
+| 编号 | 标题 | 仓库中的用途 |
+|---:|---|---|
+| 78 | AI 说错企业怎么办？用事实澄清块持续修正 | 事实纠错流程 |
+| 79 | AI 不提品牌怎么办？先检查问题覆盖和信源强度 | 品牌冷启动诊断 |
+| 80 | AI 只提竞品怎么办？拆解竞品信源再补内容 | 竞争来源分析 |
+| 81 | AI 引用错页面怎么办？优化页面标题、结构和内链 | 引用页纠正 |
+| 82 | AI 只引用第三方不引用官网怎么办？官网要补事实块 | 官网引用诊断 |
+| 83 | GEO 数据看板怎么做？六个指标就够开始 | 指标看板 |
+| 84 | GEO 关键词库还要不要？要，但要升级成问题库 | Query Set 建设 |
+
+### C. 内容与销售漏斗
+
+| 编号 | 标题 | 仓库中的用途 |
+|---:|---|---|
+| 85 | GEO 内容地图怎么和销售漏斗结合？每个阶段都有内容 | Awareness / Consideration / Decision 内容 |
+| 86 | GEO 如何做行业词？行业词要搭配解决方案页 | 行业问题与解决方案页 |
+| 87 | GEO 如何做品牌词？品牌词要让 AI 说全说准 | 品牌身份和事实问题 |
+| 88 | GEO 如何做竞品词？重点不是攻击，而是建立选择标准 | 合规对比内容 |
+| 89 | GEO 如何做长尾问题？长尾问题最接近真实需求 | 真实问题和采购意图 |
+
+### D. 长期内容资产
+
+| 编号 | 标题 | 仓库中的用途 |
+|---:|---|---|
+| 90 | GEO 如何做行业白皮书？白皮书要有章节和方法论 | 白皮书模板 |
+| 91 | GEO 如何做案例合集？案例合集比单篇案例更有信源价值 | 案例索引与证据矩阵 |
+| 92 | GEO 如何做选型指南？用户越接近决策越需要指南 | 选型页 Playbook |
+| 93 | GEO 如何做避坑指南？风险型内容能提升信任 | 风险内容与限制条件 |
+| 94 | GEO 如何做培训课件？把方法论变成可传播资产 | 内部知识传播 |
+| 95 | GEO 100 篇内容怎么规划？先搭栏目，再铺选题 | 主题集群和发布节奏 |
+
+这些标题目前主要通过作者归档和公众号历史文章反查。逐篇稳定链接获得后，应补到本索引，而不是根据编号猜测 URL。
+
+## 对“100 篇教程”的内容质量观察
+
+值得借鉴：
+
+- 选题覆盖较完整；
+- 从概念延伸到组织、内容、平台、监测和风险；
+- 多篇标题可以直接转化为企业执行清单；
+- 强调不承诺平台必然推荐，方向合理。
+
+需要谨慎：
+
+- 多篇内容在同一天集中发布；
+- 部分文章结构和表达可能高度相似；
+- “更容易被引用”“形成权威”等效果缺少公开对照数据；
+- 教程数量不等于独立案例数量；
+- 后续出现大量地域 GEO 页面，需要单独评估是否属于低价值模板页。
+
+因此，GEO-Master 将其视为：
+
+> **国内 GEO 选题地图和执行框架来源，而不是 100 个已经验证的成功案例。**
 
 ---
 
-## 提交新信源
+# 其他公众号与内容产出方观察池
 
-请至少提供：
+完整名单和分类见：
 
-- 公众号 / 作者；
-- 原文标题；
-- 发布日期；
-- 原文或稳定转载；
-- 文章属于概念、方法、案例、工具还是营销宣称；
-- 是否含有可核验数据。
+- [第三方 GEO 运营案例与公众号观察](../cases/third-party-operations/README.md)
+- [第三方运营案例索引](../cases/third-party-operations/CASE-INDEX.md)
+
+当前包括：
+
+- 硅星人Pro；
+- 壹通GEO；
+- GEO标准；
+- 羊小弟的时光机；
+- 柏导叨叨；
+- 盒创GEO流量前沿；
+- 极亿欧；
+- AI研究实验室；
+- GEO实战派；
+- AI营销圈；
+- 花见策；
+- 桂雪传媒；
+- 铂康易汇推广；
+- 阿远的知学小窝。
+
+进入正式案例库的最低要求：
+
+- 有明确文章或演讲原文；
+- 有具体行业、问题或品牌；
+- 有明确实施动作；
+- 有结果口径或可以设计复现实验；
+- 能区分事实、观点和案例方宣称。
+
+---
+
+# 引用和版权规则
+
+- 仓库保留标题、作者、日期、链接和必要摘要；
+- 不大段复制公众号或第三方文章正文；
+- 图片优先使用自制图、获得授权的截图或 Mermaid；
+- 微信链接失效后，保留公众号名、完整标题和日期；
+- 稳定转载需注明原作者；
+- 案例拆解必须加入 GEO-Master 自己的证据矩阵、执行步骤和限制；
+- 原文作者要求删除或修正时，可通过 Issue 提交。
+
+# 待办
+
+- [ ] 补充老钱聊GEO第 4、5 篇稳定链接；
+- [ ] 逐条核验招财兔第 72–100 篇原文日期和链接；
+- [ ] 从壹通GEO筛选微信生态 B2B 案例；
+- [ ] 从柏导叨叨筛选金融、教育、医疗行业案例；
+- [ ] 从盒创GEO流量前沿筛选豆包、DeepSeek、文心案例；
+- [ ] 为每个稳定原文增加最后核验日期；
+- [ ] 建立自动失效链接检查，但排除微信临时签名 URL。
