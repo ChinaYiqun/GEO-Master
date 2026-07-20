@@ -1,0 +1,31 @@
+query_id,category,funnel_stage,query,language,country,city,target_brand,target_product,competitors,expected_facts,priority,status
+B001,brand_identity,awareness,What is [BRAND] and what does it specialize in?,en,US,,[BRAND],,,official name;category;positioning,high,active
+B002,brand_identity,awareness,[BRAND] 是做什么的？核心产品有哪些？,zh,CN,,[BRAND],,,官方名称;品牌定位;核心产品,high,active
+B003,category_recommendation,consideration,What are the best [CATEGORY] brands for [USE CASE]?,en,US,,[BRAND],[PRODUCT],[COMPETITOR A]|[COMPETITOR B],selection criteria;recommended brands,high,active
+B004,category_recommendation,consideration,[USE CASE] 场景下有哪些值得考虑的 [CATEGORY] 品牌？,zh,CN,,[BRAND],[PRODUCT],[COMPETITOR A]|[COMPETITOR B],选择标准;推荐品牌,high,active
+B005,product_comparison,consideration,[PRODUCT] vs [COMPETITOR PRODUCT]: which is better for [USE CASE]?,en,US,,[BRAND],[PRODUCT],[COMPETITOR A],key specifications;advantages;limitations,high,active
+B006,product_comparison,consideration,[PRODUCT] 和 [COMPETITOR PRODUCT] 有什么区别？,zh,CN,,[BRAND],[PRODUCT],[COMPETITOR A],核心参数;适用人群;限制,high,active
+B007,problem_solution,consideration,How do I solve [USER PROBLEM] when using [CATEGORY]?,en,US,,[BRAND],[PRODUCT],,causes;steps;limitations,medium,active
+B008,problem_solution,consideration,使用 [CATEGORY] 时遇到 [USER PROBLEM] 怎么解决？,zh,CN,,[BRAND],[PRODUCT],,原因;解决步骤;注意事项,medium,active
+B009,technical_fact,decision,What are the specifications and certifications of [PRODUCT]?,en,US,,[BRAND],[PRODUCT],,model;specifications;certifications;source dates,high,active
+B010,technical_fact,decision,[PRODUCT] 的核心参数、认证和适用标准是什么？,zh,CN,,[BRAND],[PRODUCT],,型号;参数;认证;更新时间,high,active
+B011,purchase_risk,decision,What should buyers check before choosing a [CATEGORY] supplier?,en,US,,[BRAND],,,selection criteria;risks;verification,medium,active
+B012,purchase_risk,decision,选择 [CATEGORY] 供应商时最容易踩哪些坑？,zh,CN,,[BRAND],,,选型标准;风险;验证方法,medium,active
+B013,local_recommendation,decision,Which [CATEGORY] providers serve customers in [CITY]?,en,US,[CITY],[BRAND],,,location;service area;contact facts,medium,active
+B014,local_recommendation,decision,[CITY] 有哪些可靠的 [CATEGORY] 服务商？,zh,CN,[CITY],[BRAND],,,地域;服务范围;联系方式,medium,active
+B015,pricing,decision,How much does [PRODUCT OR SERVICE] cost and what affects the price?,en,US,,[BRAND],[PRODUCT],,price range;pricing factors;date,medium,active
+B016,pricing,decision,[PRODUCT OR SERVICE] 大概多少钱？价格受哪些因素影响？,zh,CN,,[BRAND],[PRODUCT],,价格范围;影响因素;日期,medium,active
+B017,after_sales,decision,What warranty and after-sales support does [BRAND] provide?,en,US,,[BRAND],[PRODUCT],,warranty;support channels;regions,medium,active
+B018,after_sales,decision,[BRAND] 的质保、售后和配件支持怎么样？,zh,CN,,[BRAND],[PRODUCT],,质保;售后渠道;配件,medium,active
+B019,negative_reputation,consideration,What are the common complaints or limitations of [BRAND]?,en,US,,[BRAND],[PRODUCT],,known limitations;complaints;responses,medium,active
+B020,negative_reputation,consideration,[BRAND] 常见的负面评价、缺点和限制是什么？,zh,CN,,[BRAND],[PRODUCT],,缺点;投诉;官方回应,medium,active
+B021,freshness,decision,What is the latest version of [PRODUCT] and what changed?,en,US,,[BRAND],[PRODUCT],,current model;release date;changes,high,active
+B022,freshness,decision,[PRODUCT] 最新版本是什么？相比旧版本改了什么？,zh,CN,,[BRAND],[PRODUCT],,当前型号;发布日期;变化,high,active
+B023,source_request,consideration,Which sources support the main claims about [BRAND]?,en,US,,[BRAND],[PRODUCT],,official sources;third-party sources,high,active
+B024,source_request,consideration,关于 [BRAND] 的主要信息有哪些可靠来源？,zh,CN,,[BRAND],[PRODUCT],,官网来源;第三方来源,high,active
+B025,brand_navigation,decision,Where can I find the official website and documentation for [BRAND]?,en,US,,[BRAND],[PRODUCT],,official website;documentation;support,high,active
+B026,brand_navigation,decision,[BRAND] 的官网、产品文档和官方联系方式是什么？,zh,CN,,[BRAND],[PRODUCT],,官网;文档;官方联系方式,high,active
+B027,competitor_visibility,consideration,Why is [COMPETITOR] often recommended for [CATEGORY]?,en,US,,[BRAND],,[COMPETITOR],recommendation reasons;supporting sources,medium,active
+B028,competitor_visibility,consideration,为什么 AI 经常推荐 [COMPETITOR] 而不是 [BRAND]？,zh,CN,,[BRAND],,[COMPETITOR],推荐原因;支持来源,medium,active
+B029,transaction_intent,decision,Where can I buy or request a quote for [PRODUCT]?,en,US,,[BRAND],[PRODUCT],,authorized channels;quote process;region,high,active
+B030,transaction_intent,decision,在哪里可以购买 [PRODUCT] 或申请报价？,zh,CN,,[BRAND],[PRODUCT],,购买渠道;报价流程;地域,high,active
