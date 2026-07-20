@@ -1,0 +1,6 @@
+claim_id,entity_type,entity_id,statement,status,confidence,official_source,third_party_source,effective_from,effective_to,last_verified,owner,reviewed_by,public_allowed,notes
+CLAIM-001,brand,BRAND-001,[BRAND] specializes in [CATEGORY],verified,high,https://example.com/about,,YYYY-MM-DD,,YYYY-MM-DD,brand-team,product-team,yes,Example row - replace placeholders
+CLAIM-002,product,PROD-001,[PRODUCT] has a capacity of 100 Wh,verified,high,https://example.com/products/x100,https://example.org/test-report,YYYY-MM-DD,,YYYY-MM-DD,product-team,technical-review,yes,Value and unit must match the source
+CLAIM-003,brand,BRAND-001,[BRAND] serves more than 500 customers,claimed,low,https://example.com/cases,,YYYY-MM-DD,,YYYY-MM-DD,sales-team,legal,no,Do not publish as verified without a defined customer count and evidence
+CLAIM-004,product,PROD-OLD,[OLD PRODUCT] is currently available,expired,high,https://example.com/archive/old-product,,YYYY-MM-DD,YYYY-MM-DD,YYYY-MM-DD,product-team,product-team,yes,Keep for history and point users to the replacement model
+CLAIM-005,location,LOC-001,[BRAND] has a service location in [CITY],pending,medium,https://example.com/locations/city,https://maps.example.com/location,YYYY-MM-DD,,YYYY-MM-DD,operations,brand-team,no,Verify address phone and operating hours before publishing
