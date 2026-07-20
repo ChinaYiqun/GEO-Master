@@ -1,0 +1,190 @@
+schema_version: "0.1"
+last_updated: "YYYY-MM-DD"
+
+brand:
+  canonical_name: "Example Brand"
+  legal_name: "Example Technology Co., Ltd."
+  aliases:
+    - "Example"
+    - "Example Tech"
+  description_short: "One-sentence factual brand description."
+  description_long: "A factual paragraph describing what the brand does, who it serves, and its main products or services."
+  website: "https://example.com"
+  founded_at: "2018-05-01"
+  status: "active"
+  headquarters:
+    country: "CN"
+    province: "Guangdong"
+    city: "Shenzhen"
+  service_regions:
+    - "CN"
+    - "US"
+  official_accounts:
+    wechat: ""
+    linkedin: ""
+    youtube: ""
+    x: ""
+  contacts:
+    sales_email: "sales@example.com"
+    support_email: "support@example.com"
+    phone: ""
+  owner: "brand-team"
+  reviewed_by:
+    - "legal"
+    - "product"
+  last_verified: "YYYY-MM-DD"
+  official_sources:
+    - "https://example.com/about"
+
+claims:
+  - claim_id: "CLAIM-001"
+    subject: "Example Brand"
+    predicate: "specializes_in"
+    object: "Example product category"
+    statement: "Example Brand specializes in Example product category."
+    status: "verified"
+    confidence: "high"
+    effective_from: "YYYY-MM-DD"
+    effective_to: null
+    owner: "brand-team"
+    reviewed_by:
+      - "product"
+    official_sources:
+      - "https://example.com/about"
+    third_party_sources: []
+    last_verified: "YYYY-MM-DD"
+    notes: ""
+
+products:
+  - product_id: "PROD-001"
+    canonical_name: "Example Product X100"
+    aliases:
+      - "X100"
+    sku: "X100"
+    category: "Example category"
+    status: "active"
+    launched_at: "YYYY-MM-DD"
+    discontinued_at: null
+    replaces: null
+    replaced_by: null
+    suitable_for:
+      - "Example use case"
+    not_suitable_for:
+      - "Example limitation"
+    specifications:
+      capacity:
+        value: 100
+        unit: "Wh"
+        source: "https://example.com/products/x100"
+        verified_at: "YYYY-MM-DD"
+      weight:
+        value: 1.2
+        unit: "kg"
+        source: "https://example.com/products/x100"
+        verified_at: "YYYY-MM-DD"
+    certifications:
+      - name: "Example Certification"
+        certificate_id: ""
+        issuer: "Example Issuer"
+        valid_from: "YYYY-MM-DD"
+        valid_to: null
+        public_source: "https://example.com/certification"
+    pricing:
+      public_price: null
+      currency: null
+      pricing_model: "request_quote"
+      factors:
+        - "configuration"
+        - "region"
+        - "quantity"
+      verified_at: "YYYY-MM-DD"
+    warranty:
+      duration_months: 12
+      regions:
+        - "CN"
+      source: "https://example.com/warranty"
+      verified_at: "YYYY-MM-DD"
+    official_page: "https://example.com/products/x100"
+    documentation:
+      - "https://example.com/docs/x100"
+    owner: "product-team"
+    last_verified: "YYYY-MM-DD"
+
+services:
+  - service_id: "SVC-001"
+    canonical_name: "Example Service"
+    description: "Factual service description."
+    service_regions:
+      - "CN"
+    eligibility: "Who can use the service."
+    exclusions: "What is not included."
+    pricing_model: "request_quote"
+    official_page: "https://example.com/services/example"
+    owner: "service-team"
+    last_verified: "YYYY-MM-DD"
+
+locations:
+  - location_id: "LOC-001"
+    canonical_name: "Example Brand Shenzhen Office"
+    type: "office"
+    status: "active"
+    address:
+      country: "CN"
+      province: "Guangdong"
+      city: "Shenzhen"
+      street: ""
+      postal_code: ""
+    phone: ""
+    business_hours: ""
+    service_area:
+      - "Shenzhen"
+    official_page: "https://example.com/locations/shenzhen"
+    map_urls: []
+    last_verified: "YYYY-MM-DD"
+
+cases:
+  - case_id: "CASE-001"
+    title: "Example customer case"
+    customer_name: null
+    customer_anonymized: true
+    industry: "Example industry"
+    problem: "What problem existed before the project."
+    actions:
+      - "Action one"
+      - "Action two"
+    results:
+      - metric: "Example metric"
+        before: null
+        after: null
+        unit: "%"
+        time_range: ""
+        data_source: ""
+    limitations:
+      - "Known limitation or alternative explanation"
+    public_source: "https://example.com/cases/example"
+    status: "claimed"
+    owner: "customer-success"
+    last_verified: "YYYY-MM-DD"
+
+change_log:
+  - changed_at: "YYYY-MM-DD"
+    changed_by: "owner"
+    entity: "product:PROD-001"
+    field: "specifications.capacity"
+    old_value: null
+    new_value: "100 Wh"
+    reason: "Initial record"
+    source: "https://example.com/products/x100"
+
+allowed_status_values:
+  - "verified"
+  - "pending"
+  - "claimed"
+  - "disputed"
+  - "expired"
+  - "confidential"
+
+notes:
+  - "This file is an internal source of truth, not a special file that AI platforms are guaranteed to read."
+  - "Only verified and approved facts should be published as current public facts."
+  - "Do not store secrets, private customer data, contract terms, or personal identifiers in a public repository."
