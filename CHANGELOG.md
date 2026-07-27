@@ -10,14 +10,25 @@ GEO-Master 的重要更新记录在这里。
 
 ## Unreleased
 
+### Added
+
+- `templates/brand-facts.yaml`：品牌事实库 YAML 模板；
+- `templates/claims-and-sources.csv`：声明与来源管理表；
+- `templates/question-map.csv`：用户问题地图模板；
+- `templates/content-brief.md`：GEO 内容 Brief 模板；
+- `templates/reddit-reply-checklist.md`：Reddit 合规社区参与检查清单；
+- `templates/lead-attribution.csv`：GEO 询盘与订单归因表；
+- 完整版国内 GEO 执行手册与国内信源索引更新；
+- 机器可读 AI 单次运行 Schema 与标准示例数据。
+
 ### Planned
 
-- 品牌事实库 YAML 模板；
-- 官网内容改造 Playbook；
-- Reddit 合规参与清单；
-- GEO 询盘与订单归因表；
+- AI 引用审计 CSV；
+- GEO 服务商验收表；
+- 官网审计表；
+- 月度报告模板；
 - 首次真实品牌 30 天基线实验；
-- 机器可读案例索引。
+- 机器可读案例索引与自动校验流程。
 
 ## 0.2.0 — 2026-07-20
 
