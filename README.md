@@ -71,6 +71,8 @@ flowchart TD
 
 ### 信源与规范
 
+- [GEO 学术、行业与媒体资料阅读索引（18 个来源）](references/GEO-READING-LIST.md)
+- [18 篇 GEO 资料综合解读：共识、分歧与证据边界](explainers/geo-literature-synthesis.md)
 - [第三方运营案例索引](cases/third-party-operations/CASE-INDEX.md)
 - [国内 GEO 原文与信源索引](references/DOMESTIC-GEO-SOURCES.md)
 - [第三方 GEO 运营案例与公众号观察](cases/third-party-operations/README.md)
@@ -85,6 +87,7 @@ flowchart TD
 | 内容 | 场景 | 你能拿走什么 | 状态 |
 |---|---|---|---|
 | [AI 可见性基线测试](playbooks/ai-visibility-baseline.md) | 全平台 | 问题集、运行规则、指标和 30 分钟最小方案 | 已发布 |
+| [18 篇 GEO 资料综合解读](explainers/geo-literature-synthesis.md) | 研究与决策 | 区分论文、服务商经验、资本叙事与灰产调查 | 已发布 |
 | [品牌提及、引用和推荐的区别](explainers/mentions-vs-citations.md) | 指标口径 | 避免把不同结果混成一个“GEO 排名” | 已发布 |
 | [实验室仪器 Reddit GEO：“136 单”案例](cases/b2b-industrial/case-001-lab-instrument-reddit/README.md) | B2B 外贸 | Reddit + Perplexity + Ahrefs 链路及归因核查 | 已发布初版 |
 | [Ahrefs：用 Reddit 反向挖掘真实需求](cases/third-party-operations/cases/TP-002-ahrefs-reddit-demand-research/README.md) | 需求研究 | 从社区问题到官网选题的 SOP | 已发布 |
@@ -113,10 +116,10 @@ flowchart TD
 
 ## 国内 GEO 原文如何进入仓库
 
-我们不会无脑复制公众号文章，而是分成三层：
+公开文章不会被简单堆进仓库，而是分成三层：
 
 ```text
-references/     原文标题、日期、作者和稳定链接
+references/     原文标题、日期、作者、稳定链接和结构化阅读笔记
 cases/          对高信息密度文章做证据化拆解
 playbooks/      跨多篇文章提炼出的执行系统
 ```
@@ -125,9 +128,10 @@ playbooks/      跨多篇文章提炼出的执行系统
 
 - “老钱聊GEO”的官网结构文章，被转化为页面改造 SOP 和对照实验；
 - “招财兔 GEO”的品牌事实库文章，被补成数据结构和版本审核流程；
+- 18 篇学术、行业和媒体资料，被分层为阅读索引与跨来源综合解读；
 - 李金龙第 72–100 篇，不按编号机械堆放，而是重组为团队治理、监测诊断、内容转化和长期资产四条主线。
 
-查看：[国内 GEO 原文与信源索引](references/DOMESTIC-GEO-SOURCES.md)
+查看：[国内 GEO 原文与信源索引](references/DOMESTIC-GEO-SOURCES.md) 和 [GEO 学术、行业与媒体资料阅读索引](references/GEO-READING-LIST.md)。
 
 ## 每个 CASE 包含什么
 
