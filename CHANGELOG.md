@@ -12,6 +12,8 @@ GEO-Master 的重要更新记录在这里。
 
 ### Added
 
+- `references/GEO-READING-LIST.md`：18 个 GEO 学术、英文行业、中文研报与媒体调查来源的结构化阅读索引；
+- `explainers/geo-literature-synthesis.md`：跨来源共识、分歧、证据地图、企业执行路径与合规边界；
 - `templates/brand-facts.yaml`：品牌事实库 YAML 模板；
 - `templates/claims-and-sources.csv`：声明与来源管理表；
 - `templates/question-map.csv`：用户问题地图模板；
@@ -20,6 +22,12 @@ GEO-Master 的重要更新记录在这里。
 - `templates/lead-attribution.csv`：GEO 询盘与订单归因表；
 - 完整版国内 GEO 执行手册与国内信源索引更新；
 - 机器可读 AI 单次运行 Schema 与标准示例数据。
+
+### Changed
+
+- 主 README 增加学术、行业和媒体阅读入口，并将综合解读列入当前重点内容；
+- `explainers/README.md` 增加 GEO 文献综合解读入口；
+- 对用户提供资料中的失效链接、作者信息、学术起源和强确定性表述增加核验状态与风险说明。
 
 ### Planned
 
