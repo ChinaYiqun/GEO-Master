@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChinaYiqun/GEO-Master/schemas/monitor-run.schema.json",
+  "title": "GEO-Master Monitoring Run",
+  "description": "A provider-neutral record for scheduled or imported AI visibility observations, compatible with self-hosted monitoring tools and citation experiments.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "batch_id",
+    "collected_at",
+    "project_id",
+    "prompt",
+    "provider",
+    "context",
+    "status",
+    "observation",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "experiment_id": {
+      "type": ["string", "null"]
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brand_fact_version": {
+      "type": ["string", "null"]
+    },
+    "query_set_version": {
+      "type": ["string", "null"]
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt_id", "text", "language", "intent"],
+      "properties": {
+        "prompt_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_prompt_id": {
+          "type": ["string", "null"]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "intent": {
+          "type": "string",
+          "enum": [
+            "informational",
+            "problem_solution",
+            "recommendation",
+            "comparison",
+            "selection",
+            "alternative",
+            "transactional",
+            "local",
+            "support",
+            "risk",
+            "brand_fact",
+            "other"
+          ]
+        },
+        "persona": {
+          "type": ["string", "null"]
+        },
+        "funnel_stage": {
+          "type": ["string", "null"],
+          "enum": ["awareness", "consideration", "decision", "retention", "unknown", null]
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product", "collection_method"],
+      "properties": {
+        "product": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_label": {
+          "type": ["string", "null"]
+        },
+        "adapter": {
+          "type": ["string", "null"]
+        },
+        "adapter_version": {
+          "type": ["string", "null"]
+        },
+        "collection_method": {
+          "type": "string",
+          "enum": [
+            "official_api",
+            "consumer_web_manual",
+            "consumer_app_manual",
+            "browser_automation",
+            "third_party_scraper",
+            "data_vendor",
+            "imported_dataset",
+            "demo_data",
+            "unknown"
+          ]
+        },
+        "vendor_dataset_id": {
+          "type": ["string", "null"]
+        },
+        "request_id": {
+          "type": ["string", "null"]
+        },
+        "cost": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "cost_currency": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "latency_ms": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["country", "language", "interface", "account_state", "conversation_state"],
+      "properties": {
+        "country": {
+          "type": "string",
+          "minLength": 2
+        },
+        "city": {
+          "type": ["string", "null"]
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "interface": {
+          "type": "string",
+          "enum": ["web_desktop", "web_mobile", "native_app", "api", "vendor_representation", "unknown"]
+        },
+        "account_state": {
+          "type": "string",
+          "enum": ["logged_in", "logged_out", "unknown"]
+        },
+        "plan_tier": {
+          "type": ["string", "null"]
+        },
+        "conversation_state": {
+          "type": "string",
+          "enum": ["new_chat", "multi_turn", "unknown"]
+        }
+      }
+    },
+    "targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brand": {
+          "type": ["string", "null"]
+        },
+        "brand_aliases": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "product": {
+          "type": ["string", "null"]
+        },
+        "official_domains": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "competitors": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "retry_count"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["completed", "partial", "failed", "timeout", "refused", "cancelled", "pending"]
+        },
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "error_code": {
+          "type": ["string", "null"]
+        },
+        "error_message": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "search_state",
+        "brand_mentioned",
+        "official_site_cited",
+        "explicitly_recommended",
+        "fact_accuracy"
+      ],
+      "properties": {
+        "search_state": {
+          "type": "string",
+          "enum": [
+            "search_visible",
+            "search_inferred",
+            "answer_without_visible_search",
+            "citations_without_clear_search_state",
+            "no_usable_answer",
+            "unknown"
+          ]
+        },
+        "brand_mentioned": {
+          "type": "boolean"
+        },
+        "mention_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "first_mention_position": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "candidate_list_position": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "official_site_cited": {
+          "type": "boolean"
+        },
+        "explicitly_recommended": {
+          "type": "boolean"
+        },
+        "recommendation_position": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "recommendation_reason": {
+          "type": ["string", "null"]
+        },
+        "sentiment": {
+          "type": "string",
+          "enum": ["positive", "neutral", "negative", "mixed", "unknown"]
+        },
+        "fact_accuracy": {
+          "type": "string",
+          "enum": ["accurate", "partial", "incorrect", "outdated", "conflicting", "unsupported", "not_evaluable"]
+        },
+        "accuracy_notes": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["citation_id", "url", "source_type", "position"],
+        "properties": {
+          "citation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "canonical_url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "registrable_domain": {
+            "type": ["string", "null"]
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "official_site",
+              "news_media",
+              "industry_media",
+              "community",
+              "video",
+              "marketplace",
+              "review_platform",
+              "academic",
+              "public_institution",
+              "documentation",
+              "aggregator",
+              "unknown"
+            ]
+          },
+          "official_brand_source": {
+            "type": "boolean"
+          },
+          "page_available": {
+            "type": ["boolean", "null"]
+          },
+          "absorption_label": {
+            "type": "string",
+            "enum": [
+              "strong_supported_overlap",
+              "partial_supported_overlap",
+              "possible_semantic_overlap",
+              "citation_without_detected_overlap",
+              "page_unavailable",
+              "answer_unavailable",
+              "not_evaluable"
+            ]
+          },
+          "supported_claim_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "default": []
+          }
+        }
+      }
+    },
+    "competitor_observations": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "mentioned", "recommended"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mentioned": {
+            "type": "boolean"
+          },
+          "mention_position": {
+            "type": ["integer", "null"],
+            "minimum": 1
+          },
+          "recommended": {
+            "type": "boolean"
+          },
+          "recommendation_position": {
+            "type": ["integer", "null"],
+            "minimum": 1
+          },
+          "cited_domains": {
+            "type": "array",
+            "items": {"type": "string"},
+            "default": []
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["answer_saved", "review_state"],
+      "properties": {
+        "answer_saved": {
+          "type": "boolean"
+        },
+        "answer_location": {
+          "type": ["string", "null"]
+        },
+        "screenshot_location": {
+          "type": ["string", "null"]
+        },
+        "answer_sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "review_state": {
+          "type": "string",
+          "enum": ["unreviewed", "machine_reviewed", "human_reviewed", "disputed"]
+        },
+        "reviewer": {
+          "type": ["string", "null"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "source_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": ["string", "null"]
+        },
+        "version": {
+          "type": ["string", "null"]
+        },
+        "source_record_id": {
+          "type": ["string", "null"]
+        },
+        "imported_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
