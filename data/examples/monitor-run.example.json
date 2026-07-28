@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "RUN-20260728-CHATGPT-001",
+  "batch_id": "BATCH-20260728-BASELINE-01",
+  "experiment_id": "EXP-BRAND-VISIBILITY-001",
+  "collected_at": "2026-07-28T09:30:00+08:00",
+  "project_id": "PROJECT-EXAMPLE-BRAND",
+  "brand_fact_version": "brand-facts-v0.2.0",
+  "query_set_version": "baseline-query-set-v0.2.0",
+  "prompt": {
+    "prompt_id": "Q-REC-001-ZH-CN",
+    "parent_prompt_id": null,
+    "text": "适合中小企业使用的客户服务软件有哪些？",
+    "language": "zh-CN",
+    "intent": "recommendation",
+    "persona": "small-business-owner",
+    "funnel_stage": "consideration"
+  },
+  "provider": {
+    "product": "Example AI Search",
+    "model_label": "model-label-shown-in-interface",
+    "adapter": "manual-web-collector",
+    "adapter_version": "0.1.0",
+    "collection_method": "consumer_web_manual",
+    "vendor_dataset_id": null,
+    "request_id": null,
+    "cost": null,
+    "cost_currency": null,
+    "latency_ms": 8400
+  },
+  "context": {
+    "country": "CN",
+    "city": "Tianjin",
+    "language": "zh-CN",
+    "interface": "web_desktop",
+    "account_state": "logged_in",
+    "plan_tier": "unknown",
+    "conversation_state": "new_chat"
+  },
+  "targets": {
+    "brand": "Example Brand",
+    "brand_aliases": [
+      "ExampleBrand"
+    ],
+    "product": "Example Service",
+    "official_domains": [
+      "example.com"
+    ],
+    "competitors": [
+      "Competitor A",
+      "Competitor B"
+    ]
+  },
+  "status": {
+    "state": "completed",
+    "retry_count": 0,
+    "error_code": null,
+    "error_message": null
+  },
+  "observation": {
+    "search_state": "search_visible",
+    "brand_mentioned": true,
+    "mention_count": 1,
+    "first_mention_position": 4,
+    "candidate_list_position": 4,
+    "official_site_cited": true,
+    "explicitly_recommended": false,
+    "recommendation_position": null,
+    "recommendation_reason": null,
+    "sentiment": "neutral",
+    "fact_accuracy": "partial",
+    "accuracy_notes": "The product category was correct, but one feature statement requires verification against the active brand fact file."
+  },
+  "citations": [
+    {
+      "citation_id": "CIT-RUN001-01",
+      "url": "https://example.com/product",
+      "canonical_url": "https://example.com/product",
+      "registrable_domain": "example.com",
+      "position": 2,
+      "source_type": "official_site",
+      "official_brand_source": true,
+      "page_available": true,
+      "absorption_label": "partial_supported_overlap",
+      "supported_claim_ids": [
+        "CLAIM-PRODUCT-CATEGORY-001"
+      ]
+    },
+    {
+      "citation_id": "CIT-RUN001-02",
+      "url": "https://industry.example.org/customer-service-tools",
+      "canonical_url": "https://industry.example.org/customer-service-tools",
+      "registrable_domain": "example.org",
+      "position": 3,
+      "source_type": "industry_media",
+      "official_brand_source": false,
+      "page_available": true,
+      "absorption_label": "possible_semantic_overlap",
+      "supported_claim_ids": []
+    }
+  ],
+  "competitor_observations": [
+    {
+      "name": "Competitor A",
+      "mentioned": true,
+      "mention_position": 1,
+      "recommended": true,
+      "recommendation_position": 1,
+      "cited_domains": [
+        "competitor-a.example",
+        "example.org"
+      ]
+    },
+    {
+      "name": "Competitor B",
+      "mentioned": true,
+      "mention_position": 2,
+      "recommended": false,
+      "recommendation_position": null,
+      "cited_domains": [
+        "review.example"
+      ]
+    }
+  ],
+  "evidence": {
+    "answer_saved": true,
+    "answer_location": "private/raw/BATCH-20260728-BASELINE-01/RUN-20260728-CHATGPT-001.md",
+    "screenshot_location": "private/raw/BATCH-20260728-BASELINE-01/RUN-20260728-CHATGPT-001.png",
+    "answer_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "review_state": "human_reviewed",
+    "reviewer": "example-reviewer",
+    "notes": "Example data only. It is not a real platform observation."
+  },
+  "source_system": {
+    "name": "GEO-Master manual example",
+    "version": "0.1.0",
+    "source_record_id": null,
+    "imported_at": null
+  }
+}
