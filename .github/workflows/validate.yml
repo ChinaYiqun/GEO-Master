@@ -1,0 +1,41 @@
+name: Validate GEO-Master data and adapters
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Compile Python scripts
+        run: |
+          python -m py_compile \
+            scripts/import_monitor_runs.py \
+            scripts/test_import_monitor_runs.py \
+            scripts/validate_examples.py
+
+      - name: Test monitoring adapters
+        run: python scripts/test_import_monitor_runs.py
+
+      - name: Validate JSON schemas and examples
+        run: python scripts/validate_examples.py
