@@ -21,6 +21,10 @@ PAIRS = [
         ROOT / "schemas" / "monitor-run.schema.json",
         ROOT / "data" / "examples" / "monitor-run.example.json",
     ),
+    (
+        ROOT / "schemas" / "content-task.schema.json",
+        ROOT / "data" / "examples" / "content-task.example.json",
+    ),
 ]
 
 
