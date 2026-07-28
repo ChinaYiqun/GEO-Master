@@ -1,0 +1,408 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChinaYiqun/GEO-Master/schemas/content-task.schema.json",
+  "title": "GEO-Master Content Operations Task",
+  "description": "A provider-neutral task contract connecting verified brand facts and user questions to generation, review, publication, distribution, and AI-platform retesting.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "project_id",
+    "name",
+    "status",
+    "inputs",
+    "content",
+    "generation",
+    "review",
+    "publication",
+    "measurement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "ready",
+        "active",
+        "paused",
+        "generating",
+        "awaiting_review",
+        "approved",
+        "publishing",
+        "published",
+        "partially_published",
+        "failed",
+        "archived"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brand_fact_version",
+        "question_ids",
+        "claim_ids",
+        "source_ids"
+      ],
+      "properties": {
+        "brand_fact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "knowledge_base_ids": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "content_brief_id": {
+          "type": ["string", "null"]
+        },
+        "source_snapshot_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "content_type",
+        "language",
+        "market",
+        "primary_question",
+        "direct_answer",
+        "required_sections",
+        "prohibited_claims"
+      ],
+      "properties": {
+        "content_type": {
+          "type": "string",
+          "enum": [
+            "product_page",
+            "comparison",
+            "selection_guide",
+            "faq",
+            "case_study",
+            "support_article",
+            "research_report",
+            "landing_page",
+            "article",
+            "other"
+          ]
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "market": {
+          "type": "string",
+          "minLength": 2
+        },
+        "primary_question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direct_answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_sections": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1
+        },
+        "required_entities": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "comparison_dimensions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "limitations_to_disclose": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "prohibited_claims": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "commercial_next_action": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "model_selection_mode",
+        "prompt_reference",
+        "need_human_review"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["manual", "assisted", "automated"]
+        },
+        "model_selection_mode": {
+          "type": "string",
+          "enum": ["fixed", "smart_failover", "external"]
+        },
+        "model_reference": {
+          "type": ["string", "null"]
+        },
+        "prompt_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author_reference": {
+          "type": ["string", "null"]
+        },
+        "image_library_reference": {
+          "type": ["string", "null"]
+        },
+        "need_human_review": {
+          "type": "boolean"
+        },
+        "auto_keywords": {
+          "type": "boolean"
+        },
+        "auto_description": {
+          "type": "boolean"
+        },
+        "draft_limit": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "article_limit": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "fact_check_required",
+        "source_check_required",
+        "compliance_check_required"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "not_started",
+            "machine_checked",
+            "human_review",
+            "changes_requested",
+            "approved",
+            "rejected"
+          ]
+        },
+        "fact_check_required": {
+          "type": "boolean"
+        },
+        "source_check_required": {
+          "type": "boolean"
+        },
+        "compliance_check_required": {
+          "type": "boolean"
+        },
+        "reviewer": {
+          "type": ["string", "null"]
+        },
+        "reviewed_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "approved_claim_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "rejected_claims": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publish_scope",
+        "distribution_strategy",
+        "destinations"
+      ],
+      "properties": {
+        "publish_scope": {
+          "type": "string",
+          "enum": ["local_and_distribution", "distribution_only", "local_only", "external"]
+        },
+        "distribution_strategy": {
+          "type": "string",
+          "enum": ["broadcast", "round_robin", "random_balanced", "selected", "none"]
+        },
+        "publish_interval_seconds": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "destinations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["destination_id", "channel_type", "state"],
+            "properties": {
+              "destination_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "channel_type": {
+                "type": "string",
+                "enum": [
+                  "local_site",
+                  "geoflow_agent",
+                  "wordpress_rest",
+                  "generic_http_api",
+                  "manual",
+                  "other"
+                ]
+              },
+              "state": {
+                "type": "string",
+                "enum": ["pending", "queued", "published", "failed", "paused", "removed"]
+              },
+              "published_url": {
+                "type": ["string", "null"],
+                "format": "uri"
+              },
+              "published_at": {
+                "type": ["string", "null"],
+                "format": "date-time"
+              },
+              "source_system_record_id": {
+                "type": ["string", "null"]
+              },
+              "last_verified_at": {
+                "type": ["string", "null"],
+                "format": "date-time"
+              },
+              "error": {
+                "type": ["string", "null"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseline_query_ids",
+        "retest_required"
+      ],
+      "properties": {
+        "baseline_query_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "baseline_batch_id": {
+          "type": ["string", "null"]
+        },
+        "retest_required": {
+          "type": "boolean"
+        },
+        "retest_not_before": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "retest_batch_id": {
+          "type": ["string", "null"]
+        },
+        "lead_attribution_campaign_id": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "source_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": ["string", "null"]
+        },
+        "version": {
+          "type": ["string", "null"]
+        },
+        "task_record_id": {
+          "type": ["string", "null"]
+        },
+        "surface": {
+          "type": ["string", "null"],
+          "enum": ["cli", "api_v1", "admin_web", "external", null]
+        },
+        "idempotency_key": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}
