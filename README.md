@@ -1,35 +1,43 @@
 # GEO-Master
 
-> 中国品牌出海与国内 AI 搜索场景的 GEO 实战项目：真实案例、可复现实验、Playbook、模板、数据规范与资料索引。
+> 面向中国品牌出海与国内 AI 搜索的 GEO 实战开源项目：网站审计、真实案例、可复现实验、Agent Skills、监测模板、数据规范与工具集成。
 
 [![GitHub stars](https://img.shields.io/github/stars/ChinaYiqun/GEO-Master?style=social)](https://github.com/ChinaYiqun/GEO-Master/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-informational.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.3.0--dev-informational.svg)](CHANGELOG.md)
 
-> **需要把 GEO 方法用于实际业务？**
->
-> 查看项目维护者提供的 **[GEO 商业产品介绍](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-top)**。
->
-> 商业产品与本开源仓库相互独立：仓库继续公开案例、证据标准、模板和实验方法，不因商业合作降低核验要求。
+**自己研究和复现：** 使用本仓库的案例、模板、数据结构和 Skill。  
+**希望用于真实企业业务：** [查看 GEO 产品化方案](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-top)
 
-## 在线访问
-
-- **GEO-Master 开源网站：** https://chinayiqun.github.io/geo-master/
-- **GEO 商业产品介绍：** [查看产品与服务](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=online-access)
-
-仓库研究品牌如何被 ChatGPT、Perplexity、Gemini、Claude、Google AI Search、豆包、DeepSeek、腾讯元宝等生成式平台：
+GEO-Master 研究品牌如何在 ChatGPT、Perplexity、Gemini、Claude、Google AI Search、豆包、DeepSeek、腾讯元宝等生成式平台中：
 
 ```text
-发现 → 理解 → 提及 → 引用 → 推荐 → 访问 → 询盘 → 成交
+被发现 → 被理解 → 被提及 → 被引用 → 被推荐 → 带来访问与询盘
 ```
 
-项目不把一次 AI 回答当成稳定排名，也不把服务商截图、外链数量或无法核验的订单数字直接写成成功事实。
+项目不把一次 AI 回答当成稳定排名，也不把爬虫可访问、Schema、`llms.txt`、外链数量或服务商截图直接写成 GEO 成功。
 
 ---
 
-## 30 分钟开始一次 GEO 基线测试
+## 现在能做什么
 
-第一次使用，只需要下面三个文件：
+| 能力 | 说明 | 入口 |
+|---|---|---|
+| 网站 GEO 审计 | 检查爬虫、页面内容、品牌事实、Schema、旧信息与可引用性 | [`geo-master` Skill](.agents/skills/geo-master/SKILL.md) |
+| AI 可见性基线 | 用真实问题记录品牌提及、官网引用、推荐位置和准确性 | [基线测试 Playbook](playbooks/ai-visibility-baseline.md) |
+| 引用实验 | 研究引用选择、内容吸收、实体曝光和 Web/App 差异 | [`geo-master-citation-lab` Skill](.agents/skills/geo-master-citation-lab/SKILL.md) |
+| 多模型监测 | 跟踪品牌、竞品、引用、地域差异、趋势和漂移告警 | [`geo-master-monitor` Skill](.agents/skills/geo-master-monitor/SKILL.md) |
+| 内容工程 | 从事实库、问题地图到生成、审核、发布和多站分发 | [工具生态与集成](integrations/README.md) |
+| 案例与证据 | 拆解国内外 GEO 案例，区分宣称、观察和可验证结果 | [案例库](cases/README.md) |
+| 模板与数据 | 品牌事实库、问题集、监测表、内容 Brief、归因表和 Schema | [模板资产](templates/README.md) |
+
+完整架构：**[GEO-Master 工具生态与集成路线](integrations/README.md)**
+
+---
+
+## 30 分钟建立第一版基线
+
+第一次使用，先复制三个文件：
 
 1. [AI 可见性基线测试 Playbook](playbooks/ai-visibility-baseline.md)
 2. [30 条中英文基线问题集](templates/baseline-query-set.csv)
@@ -38,209 +46,126 @@
 最小实验：
 
 ```text
-选择 10 个真实用户问题
+10 个真实用户问题
 × 2 个 AI 平台
 × 每题运行 1–3 次
-→ 分别记录品牌提及、官网引用、推荐位置和事实准确性
+→ 记录提及、引用、推荐和事实准确性
 ```
 
-没有基线、原始回答和重复运行记录时，不应宣布“GEO 提升了多少”或“带来了多少订单”。
+没有基线、原始回答、运行环境和重复测试记录时，不应宣布“GEO 提升了多少”或“带来了多少订单”。
 
 ---
 
-## 现在可以直接使用什么
+## 三个 Agent Skills
 
-| 模块 | 内容 | 入口 |
-|---|---|---|
-| Cases | 国内外 GEO 案例、失败模式和证据核验 | [案例库](cases/README.md) |
-| Playbooks | 基线测试、国内 GEO 执行和具体工作流 | [执行手册](playbooks/README.md) |
-| Explainers | 提及、引用、推荐、准确性等技术口径 | [技术解释](explainers/README.md) |
-| Templates | 问题集、监测表、品牌事实库和归因表 | [模板资产](templates/README.md) |
-| References | 学术论文、行业文章、媒体调查和国内信源 | [资料阅读索引](references/GEO-READING-LIST.md) |
-| Data | 机器可读运行记录、Schema 和示例数据 | [数据规范](data/README.md) |
+仓库在 `.agents/skills/` 中提供三个互补入口。
 
-推荐入口：
+### `geo-master`
+
+负责：
+
+- 网站快速诊断和完整审计；
+- 品牌事实与来源治理；
+- 问题基线和内容规划；
+- GEOFlow 式内容生产、审核和分发设计；
+- 优化前后验证。
+
+### `geo-master-citation-lab`
+
+负责：
+
+- 受控 Prompt 实验；
+- 引用选择与引用吸收；
+- 品牌和产品实体曝光；
+- 平台、地区、语言、Web/App 差异；
+- 外部研究数据的许可合规导入。
+
+### `geo-master-monitor`
+
+负责：
+
+- 多模型并行监测；
+- 品牌与竞品 Share of Voice；
+- 引用域名和页面机会；
+- 地区差异和历史变化；
+- 漂移告警、周报和月报；
+- 对接 Elmo、GEO/AEO Tracker 等自托管系统。
+
+---
+
+## 完整工作链
+
+```mermaid
+flowchart LR
+    A[网站与品牌事实审计] --> B[真实问题基线]
+    B --> C[内容与技术改造]
+    C --> D[知识库与审核发布]
+    D --> E[多模型持续监测]
+    E --> F[引用选择与吸收分析]
+    F --> G[访问 询盘 订单归因]
+    G --> A
+```
+
+各层职责：
+
+```text
+GEO-Master
+  标准、案例、模板、审计、实验、监测契约和证据边界
+
+外部工具
+  内容生产、多站分发、多模型执行、看板和数据采集
+
+企业产品
+  部署、实施、长期运营、报告和支持
+```
+
+需要企业落地服务，可以查看：**[GEO 产品介绍](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=workflow)**
+
+---
+
+## 已吸收的开源能力
+
+GEO-Master 采用“吸收能力与架构、保留上游独立部署”的方式扩展：
+
+| 上游项目 | 吸收的能力 |
+|---|---|
+| `zubair-trabzada/geo-seo-claude` | GEO/SEO 审计路由、爬虫检查、结构化数据和报告工作流 |
+| `yaojingang/GEOFlow` | 知识库、RAG、任务、审核、发布和多站点分发链路 |
+| `yaojingang/geo-citation-lab` | 引用选择、内容吸收、实体曝光和中文生成式搜索实证研究 |
+| `elmohq/elmo` | 自托管 Prompt 运行、品牌/竞品监测、引用和周期报告 |
+| `danishashko/geo-aeo-tracker` | 多模型并行、地域监测、引用机会、历史对比和漂移告警 |
+
+许可证、数据边界和具体适配方式见：[工具生态与集成架构](integrations/README.md)。
+
+当前没有把这些项目整仓复制进来，也没有复制大型数据集、论文 PDF 或大段上游代码。后续如果引入实质代码，将保留版权、许可证、修改说明和 NOTICE。
+
+---
+
+## 内容与数据资产
+
+### 案例和方法
 
 - [新读者从这里开始](START-HERE.md)
-- [GEO 学术、行业与媒体资料阅读索引](references/GEO-READING-LIST.md)
-- [跨来源综合解读：共识、分歧与证据边界](explainers/geo-literature-synthesis.md)
+- [案例库](cases/README.md)
+- [执行 Playbook](playbooks/README.md)
+- [技术解释](explainers/README.md)
+- [GEO 学术、行业与媒体资料索引](references/GEO-READING-LIST.md)
 - [证据与案例评级标准](EVIDENCE-STANDARD.md)
-- [90 天路线图](ROADMAP.md)
-- [更新记录](CHANGELOG.md)
+
+### 可复制模板
+
+- [`brand-facts.yaml`](templates/brand-facts.yaml)：品牌事实库；
+- [`claims-and-sources.csv`](templates/claims-and-sources.csv)：声明与来源；
+- [`question-map.csv`](templates/question-map.csv)：用户问题地图；
+- [`baseline-query-set.csv`](templates/baseline-query-set.csv)：基线问题集；
+- [`weekly-monitoring.csv`](templates/weekly-monitoring.csv)：逐次监测；
+- [`content-brief.md`](templates/content-brief.md)：内容 Brief；
+- [`lead-attribution.csv`](templates/lead-attribution.csv)：询盘与订单归因；
+- [`engine-run.schema.json`](schemas/engine-run.schema.json)：机器可读运行记录。
 
 ---
 
-## 仓库结构
-
-```text
-GEO-Master/
-├── cases/          # 真实案例、第三方案例拆解与失败模式
-├── playbooks/      # 可执行步骤和团队工作流
-├── explainers/     # 技术机制、指标和概念边界
-├── templates/      # CSV、YAML、Markdown 等可复制资产
-├── references/     # 原始来源、作者、日期、链接与阅读笔记
-├── data/           # 实验数据示例与目录规范
-├── schemas/        # 机器可读数据结构
-└── docs/           # 项目网站或网站相关资源（如后续迁入）
-```
-
-公开文章进入仓库时，按三层处理：
-
-```text
-references/  保存来源和结构化阅读笔记
-cases/       对高价值案例进行证据化拆解
-playbooks/   从多个来源提炼可执行系统
-```
-
----
-
-# AI Coding 强制规则：一次只完成一项内容
-
-> 本节适用于 Codex、Claude Code、GitHub Copilot、Gemini CLI、Cursor Agent、OpenHands 以及其他自动编码或自动维护工具。
-
-## 核心约束
-
-```text
-一个任务 = 一个明确交付物
-一个提交 = 一个原子变更
-达到当前任务验收条件 = 立即停止
-```
-
-任何 AI Agent 在修改仓库前，必须遵守以下规则：
-
-1. **只完成当前消息或当前 Issue 明确要求的一项内容。**
-2. **不得顺手完成路线图中的下一项。**
-3. **不得因为发现相邻问题，就自动扩大任务范围。**
-4. **不得在一次提交中同时增加案例、模板、网站功能和文档更新。**
-5. **不得进行“顺便重构”“顺便统一格式”“顺便清理全部链接”。**
-6. **没有被任务明确点名的文件，默认不得修改。**
-7. **完成验收条件后立即停止，不继续寻找可以改进的地方。**
-8. **如果一个需求包含多个独立结果，先拆成多个任务；本次只执行第一个任务。**
-
-## 什么算“一项内容”
-
-允许作为一次任务的例子：
-
-- 新增 **一个** GEO 案例；
-- 核验 **一篇** 文章；
-- 修复 **一个** 失效链接；
-- 新增 **一个** CSV 模板；
-- 增加网站的 **一个** 筛选功能；
-- 修正 **一个** Schema 字段；
-- 重写 **一个** 指定文件；
-- 为 **一个** 已存在功能补充测试。
-
-不允许放在同一次任务或同一个提交中的组合：
-
-```text
-新增文章索引
-+ 拆成完整案例
-+ 提炼 Playbook
-+ 更新网站
-+ 更新路线图
-+ 创建 Release
-```
-
-上面的六项必须拆成六个独立任务，根据优先级逐项完成。
-
-## AI Agent 开始工作前
-
-Agent 必须先在内部明确以下五项：
-
-```text
-当前唯一目标：
-允许修改的文件：
-明确不做的内容：
-验收条件：
-提交信息：
-```
-
-如果任务没有提供“允许修改的文件”，Agent 应选择完成目标所需的**最少文件集合**，而不是扩大到相关目录。
-
-如果存在两种实现方式，应优先选择：
-
-```text
-修改文件更少
-改动范围更小
-更容易验证
-更容易回滚
-不改变现有接口
-```
-
-## AI Agent 完成工作后
-
-提交前必须检查：
-
-- [ ] 本次是否只有一个主要结果；
-- [ ] 是否修改了任务没有要求的文件；
-- [ ] 是否夹带格式整理、目录重构或其他优化；
-- [ ] 是否满足当前任务的验收条件；
-- [ ] 是否可以用一句话准确描述这次提交；
-- [ ] 是否应该立即停止，而不是继续做下一项。
-
-只要无法用一句话描述提交结果，就说明改动范围可能过大，需要继续拆分。
-
-## Commit 规则
-
-推荐格式：
-
-```text
-<type>(<scope>): <一个明确结果>
-```
-
-示例：
-
-```text
-docs(readme): define atomic AI coding workflow
-feat(templates): add citation audit CSV
-fix(references): replace one expired source URL
-data(schema): add locale field to engine run schema
-case(reddit): add one portable power station teardown
-```
-
-禁止使用过于宽泛的提交信息：
-
-```text
-update project
-improve GEO Master
-add multiple features
-finish roadmap
-misc fixes
-```
-
-## 推荐的任务描述模板
-
-后续给 AI Coding 工具下任务时，建议复制下面的格式：
-
-```markdown
-## 当前唯一任务
-新增一份 AI 引用审计 CSV 模板。
-
-## 允许修改
-- templates/citation-audit.csv
-
-## 不在本次范围
-- 不修改 README
-- 不更新网站
-- 不新增 Playbook
-- 不修改其他模板
-
-## 验收条件
-- 包含一行示例数据
-- 包含字段说明
-- CSV 可以正常打开
-
-## 提交信息
-feat(templates): add citation audit CSV
-```
-
-如果 Agent 认为还有其他值得完成的事项，只能将其写入“后续建议”，**不能在当前提交中执行**。
-
----
-
-## 证据原则
-
-四个 AI 可见性指标必须分开：
+## 四个指标必须分开
 
 ```text
 AI 是否提到品牌
@@ -249,7 +174,7 @@ AI 是否明确推荐品牌
 AI 是否准确描述品牌事实
 ```
 
-商业结果再单独追踪：
+商业结果另行记录：
 
 ```text
 点击或品牌搜索
@@ -259,62 +184,68 @@ AI 是否准确描述品牌事实
 → 订单
 ```
 
-仓库中的结果数字应标记为：
+结果应标记为：
 
-- `verified`：可靠来源已确认；
-- `reproduced`：通过多次运行复现；
-- `observed`：少量观察；
-- `claimed`：案例方宣称；
-- `unknown`：尚无数据；
-- `not_provided`：来源未提供。
+```text
+verified       已通过可靠来源确认
+reproduced     已在记录条件下重复复现
+observed       少量观察
+claimed        来源方宣称
+pending        正在核验
+expired        已过期
+unknown        尚无证据
+not_provided   来源未提供
+```
+
+---
+
+## 仓库结构
+
+```text
+GEO-Master/
+├── .agents/skills/  # 可调用 GEO Agent Skills
+├── cases/           # 案例、证据核验与失败模式
+├── playbooks/       # 可执行流程
+├── explainers/      # 指标、机制与边界
+├── integrations/    # 工具生态和适配架构
+├── templates/       # CSV、YAML、Markdown 模板
+├── references/      # 原始来源与阅读索引
+├── data/            # 实验数据示例与目录规范
+├── schemas/         # 机器可读数据结构
+├── AGENTS.md        # AI Coding 工作规则
+└── ROADMAP.md       # 项目路线图
+```
 
 ---
 
 ## 不做什么
 
-- 不把一次 ChatGPT、豆包或 DeepSeek 回答当成稳定结论；
-- 不把 Ahrefs 外链数量等同于 AI 推荐；
-- 不伪装普通用户发布品牌营销内容；
-- 不建议批量生成低价值社区回复；
-- 不保证修改几个标签就一定被模型收录；
-- 不替无法独立验证的订单数字背书；
-- 不把从业者经验包装成平台官方规则；
-- 不用一个总分掩盖负面提及和事实错误。
-
----
-
-## 开源项目与商业产品
-
-GEO-Master 是开放的学习、研究和复现实验仓库。项目维护者同时提供商业 GEO 产品，面向希望进一步了解产品化方案的读者。
-
-- 开源仓库中的模板、案例和证据标准继续按公开规则维护；
-- 商业产品不会被包装成独立第三方结论；
-- 涉及产品自身的案例或数据，会明确标记来源和证据等级；
-- 是否使用商业产品，不影响参与仓库、提交 Issue 或贡献 PR。
-
-**[查看 GEO 商业产品介绍 →](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-commercial-section)**
+- 不伪装普通用户制造品牌口碑；
+- 不批量生成低价值社区回复或重复页面；
+- 不把启发式评分包装成平台官方排名机制；
+- 不保证加入 `llms.txt` 或 Schema 就一定被收录；
+- 不把服务商宣称和无法核验的订单数字写成事实；
+- 不用一个总分掩盖负面提及、参数错误或平台缺失；
+- 不复制超出许可证允许范围的代码、数据、论文或素材。
 
 ---
 
 ## 贡献
 
-开始贡献前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+开始前请阅读：
 
-欢迎提交：
+- [贡献指南](CONTRIBUTING.md)
+- [AI Agent 工作规则](AGENTS.md)
+- [案例模板](CASE-TEMPLATE.md)
+- [90 天路线图](ROADMAP.md)
+- [更新记录](CHANGELOG.md)
 
-- 可核验的 GEO 案例；
-- 失败案例和踩坑记录；
-- 平台变化与复现实验；
-- 数据集、Prompt、工具和模板；
-- 官方文档、行业文章和案例线索；
-- 对已有证据链的补充或质疑。
-
-对于多个独立贡献，请分别创建 Issue 或 PR，不要合并成一个大型改动。
+欢迎提交真实案例、失败复盘、平台变化、数据集、Prompt、工具适配器和证据纠错。
 
 ## Citation
 
-研究、报告、培训或客户项目使用本仓库时，可以引用 [`CITATION.cff`](CITATION.cff)，并保留各案例对应的原始文章与官方来源。
+研究、报告、培训或客户项目使用本仓库时，可以引用 [`CITATION.cff`](CITATION.cff)，并保留各案例和上游项目对应的来源与许可说明。
 
 ## License
 
-MIT License。案例引用、截图、第三方文章和外部数据仍遵循其原始版权与使用规则。
+GEO-Master 原创代码和内容默认采用 MIT License。第三方代码、数据、报告、论文、截图和其他外部资产继续遵循各自许可证与版权规则。
