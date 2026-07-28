@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "TASK-COMPARE-001",
+  "project_id": "PROJECT-EXAMPLE-BRAND",
+  "name": "Create an evidence-based product comparison page",
+  "created_at": "2026-07-28T12:00:00+08:00",
+  "updated_at": null,
+  "status": "ready",
+  "inputs": {
+    "brand_fact_version": "brand-facts-v0.2.0",
+    "question_ids": [
+      "Q-COMPARE-001-ZH-CN"
+    ],
+    "claim_ids": [
+      "CLAIM-PRODUCT-POSITIONING-001",
+      "CLAIM-PRODUCT-FEATURE-002"
+    ],
+    "source_ids": [
+      "SOURCE-OFFICIAL-PRODUCT-001",
+      "SOURCE-TEST-REPORT-001"
+    ],
+    "knowledge_base_ids": [
+      "KB-BRAND-FACTS",
+      "KB-PRODUCT-DOCS"
+    ],
+    "content_brief_id": "BRIEF-COMPARE-001",
+    "source_snapshot_at": "2026-07-28T11:30:00+08:00"
+  },
+  "content": {
+    "content_type": "comparison",
+    "language": "zh-CN",
+    "market": "CN",
+    "primary_question": "Example Brand 和 Competitor A 有什么区别？",
+    "direct_answer": "两者面向的使用场景不同，应根据预算、部署方式和服务范围选择。",
+    "required_sections": [
+      "直接结论",
+      "适用人群",
+      "关键参数对比",
+      "限制条件",
+      "测试和来源",
+      "常见问题"
+    ],
+    "required_entities": [
+      "Example Brand",
+      "Competitor A"
+    ],
+    "comparison_dimensions": [
+      "部署方式",
+      "核心功能",
+      "适用规模",
+      "服务范围",
+      "限制条件"
+    ],
+    "limitations_to_disclose": [
+      "不同套餐的功能范围可能不同",
+      "示例数据不能替代正式采购测试"
+    ],
+    "prohibited_claims": [
+      "行业第一",
+      "保证被 ChatGPT 推荐"
+    ],
+    "commercial_next_action": "查看产品介绍或申请业务咨询"
+  },
+  "generation": {
+    "mode": "assisted",
+    "model_selection_mode": "smart_failover",
+    "model_reference": "MODEL-CONTENT-PRIMARY",
+    "prompt_reference": "PROMPT-EVIDENCE-COMPARISON-V1",
+    "author_reference": "AUTHOR-EXAMPLE",
+    "image_library_reference": null,
+    "need_human_review": true,
+    "auto_keywords": true,
+    "auto_description": true,
+    "draft_limit": 3,
+    "article_limit": 1
+  },
+  "review": {
+    "state": "not_started",
+    "fact_check_required": true,
+    "source_check_required": true,
+    "compliance_check_required": true,
+    "reviewer": null,
+    "reviewed_at": null,
+    "approved_claim_ids": [],
+    "rejected_claims": [],
+    "notes": "Example data only."
+  },
+  "publication": {
+    "publish_scope": "local_and_distribution",
+    "distribution_strategy": "selected",
+    "publish_interval_seconds": 3600,
+    "destinations": [
+      {
+        "destination_id": "SITE-MAIN-CN",
+        "channel_type": "local_site",
+        "state": "pending",
+        "published_url": null,
+        "published_at": null,
+        "source_system_record_id": null,
+        "last_verified_at": null,
+        "error": null
+      },
+      {
+        "destination_id": "SITE-WORDPRESS-EN",
+        "channel_type": "wordpress_rest",
+        "state": "paused",
+        "published_url": null,
+        "published_at": null,
+        "source_system_record_id": null,
+        "last_verified_at": null,
+        "error": null
+      }
+    ]
+  },
+  "measurement": {
+    "baseline_query_ids": [
+      "Q-COMPARE-001-ZH-CN",
+      "Q-REC-004-ZH-CN"
+    ],
+    "baseline_batch_id": "BATCH-BEFORE-COMPARE-001",
+    "retest_required": true,
+    "retest_not_before": "2026-08-04T12:00:00+08:00",
+    "retest_batch_id": null,
+    "lead_attribution_campaign_id": "CAMPAIGN-COMPARE-PAGE-001"
+  },
+  "source_system": {
+    "name": "GEOFlow-compatible operations",
+    "version": "2.1+",
+    "task_record_id": null,
+    "surface": "api_v1",
+    "idempotency_key": "GEO-MASTER-TASK-COMPARE-001"
+  }
+}
