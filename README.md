@@ -6,11 +6,16 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.2.0-informational.svg)](CHANGELOG.md)
 
+> **需要把 GEO 方法用于实际业务？**
+>
+> 查看项目维护者提供的 **[GEO 商业产品介绍](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-top)**。
+>
+> 商业产品与本开源仓库相互独立：仓库继续公开案例、证据标准、模板和实验方法，不因商业合作降低核验要求。
+
 ## 在线访问
 
-**GEO-Master 网站：**
-
-https://chinayiqun.github.io/geo-master/
+- **GEO-Master 开源网站：** https://chinayiqun.github.io/geo-master/
+- **GEO 商业产品介绍：** [查看产品与服务](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=online-access)
 
 仓库研究品牌如何被 ChatGPT、Perplexity、Gemini、Claude、Google AI Search、豆包、DeepSeek、腾讯元宝等生成式平台：
 
@@ -275,6 +280,19 @@ AI 是否准确描述品牌事实
 - 不替无法独立验证的订单数字背书；
 - 不把从业者经验包装成平台官方规则；
 - 不用一个总分掩盖负面提及和事实错误。
+
+---
+
+## 开源项目与商业产品
+
+GEO-Master 是开放的学习、研究和复现实验仓库。项目维护者同时提供商业 GEO 产品，面向希望进一步了解产品化方案的读者。
+
+- 开源仓库中的模板、案例和证据标准继续按公开规则维护；
+- 商业产品不会被包装成独立第三方结论；
+- 涉及产品自身的案例或数据，会明确标记来源和证据等级；
+- 是否使用商业产品，不影响参与仓库、提交 Issue 或贡献 PR。
+
+**[查看 GEO 商业产品介绍 →](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-commercial-section)**
 
 ---
 
