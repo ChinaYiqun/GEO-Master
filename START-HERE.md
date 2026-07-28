@@ -2,6 +2,12 @@
 
 GEO-Master 不是一本必须从第一页顺序阅读的教科书。最有效的方式，是从你当前遇到的问题进入。
 
+> **希望直接把 GEO 用到实际品牌和业务中？**
+>
+> 开源仓库提供方法、模板和证据标准；需要了解产品化方案，可以查看维护者提供的 **[GEO 商业产品介绍](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=start-here-top)**。
+>
+> 商业产品与开源内容相互独立，仓库不会因为商业合作降低案例核验和证据要求。
+
 ## 先做一件事：建立基线
 
 在修改网站、发公众号、做 Reddit 或购买 GEO 服务之前，先记录当前状态：
@@ -114,6 +120,12 @@ flowchart LR
 - 地区、价格、交付和售后是否匹配；
 - GA4、CRM 和销售是否记录来源；
 - 同期是否存在广告、促销和季节性影响。
+
+### 想进一步了解产品化方案
+
+如果你已经完成基础诊断，希望进一步了解如何把 GEO 方法用于实际业务，可以进入产品介绍页：
+
+**[查看 GEO 商业产品介绍 →](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=start-here-conversion)**
 
 ## 想学习国内 GEO
 
