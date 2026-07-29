@@ -1,0 +1,502 @@
+{
+  "schema_version": "0.1.0",
+  "updated_at": "2026-07-29",
+  "capabilities": [
+    {
+      "id": "research-benchmarking",
+      "name_zh": "研究与基准",
+      "name_en": "Research and benchmarking",
+      "stage": "research",
+      "description": "GEO 方法、数据集、可见性评估和可复现实验基线。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "brand-truth-governance",
+      "name_zh": "品牌事实治理",
+      "name_en": "Brand truth governance",
+      "stage": "truth",
+      "description": "品牌、产品、声明、证据、版本和冲突事实的可追溯治理。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "site-technical-audit",
+      "name_zh": "站点技术审计",
+      "name_en": "Site technical audit",
+      "stage": "audit",
+      "description": "检查抓取、渲染、Meta、Schema、站点结构和技术可发现性。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "ai-crawler-access",
+      "name_zh": "AI 爬虫访问治理",
+      "name_en": "AI crawler access governance",
+      "stage": "discoverability",
+      "description": "识别并验证主要 AI Bot、CDN、防火墙和 robots 访问策略。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "llm-readable-delivery",
+      "name_zh": "LLM 可读内容交付",
+      "name_en": "LLM-readable delivery",
+      "stage": "discoverability",
+      "description": "生成 llms.txt、Markdown Twin、AI 索引和机器可读页面。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "content-citability-analysis",
+      "name_zh": "内容可引用性分析",
+      "name_en": "Content citability analysis",
+      "stage": "content",
+      "description": "分析事实密度、答案前置、实体、结构、来源和可摘录性。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "content-rewrite-optimization",
+      "name_zh": "内容改写与优化",
+      "name_en": "Content rewrite optimization",
+      "stage": "content",
+      "description": "基于证据与实验规则改写内容，同时约束事实准确性和风格漂移。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "knowledge-rag",
+      "name_zh": "知识库与 RAG",
+      "name_en": "Knowledge base and RAG",
+      "stage": "content",
+      "description": "将可信事实、素材和来源转为内容生成与审核的检索上下文。",
+      "implementation_owner": "external-runtime"
+    },
+    {
+      "id": "editorial-workflow",
+      "name_zh": "内容任务与审核",
+      "name_en": "Editorial workflow",
+      "stage": "content",
+      "description": "任务、草稿、人工审核、事实校验、发布节奏和回滚。",
+      "implementation_owner": "external-runtime"
+    },
+    {
+      "id": "multi-site-distribution",
+      "name_zh": "多站点分发",
+      "name_en": "Multi-site distribution",
+      "stage": "distribution",
+      "description": "向官网、WordPress、静态站和通用 API 渠道分发并同步内容。",
+      "implementation_owner": "external-runtime"
+    },
+    {
+      "id": "prompt-monitoring",
+      "name_zh": "多模型 Prompt 监测",
+      "name_en": "Multi-model prompt monitoring",
+      "stage": "monitoring",
+      "description": "定时运行问题集，保留平台、模型、地区、语言、界面和会话上下文。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "mention-citation-tracking",
+      "name_zh": "提及与引用追踪",
+      "name_en": "Mention and citation tracking",
+      "stage": "monitoring",
+      "description": "区分品牌提及、官网引用、明确推荐、事实准确性和引用页面。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "competitor-share-of-voice",
+      "name_zh": "竞品与 AI 声量",
+      "name_en": "Competitor and AI share of voice",
+      "stage": "analytics",
+      "description": "按问题、平台、市场和时间比较品牌与竞品的提及、推荐和引用份额。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "citation-absorption-lab",
+      "name_zh": "引用选择与内容吸收实验",
+      "name_en": "Citation selection and absorption lab",
+      "stage": "citation",
+      "description": "验证来源选择、答案吸收、实体曝光和不同界面的因果边界。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "seo-data-integration",
+      "name_zh": "SEO 数据联动",
+      "name_en": "SEO data integration",
+      "stage": "analytics",
+      "description": "联动 GSC、SERP、关键词、外链、索引和 AI 引荐流量。",
+      "implementation_owner": "geo-master-adapter"
+    },
+    {
+      "id": "reporting-alerting",
+      "name_zh": "报告与漂移告警",
+      "name_en": "Reporting and drift alerts",
+      "stage": "analytics",
+      "description": "生成周期报告，识别引用消失、事实错误、平台差异和趋势异常。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "agent-orchestration",
+      "name_zh": "Agent 运营编排",
+      "name_en": "Agent operations orchestration",
+      "stage": "orchestration",
+      "description": "把研究、内容、审计、监测和复盘编排为可交接、可停止的 Agent 工作流。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "business-attribution",
+      "name_zh": "业务归因与治理",
+      "name_en": "Business attribution and governance",
+      "stage": "governance",
+      "description": "将 AI 可见性与访问、询盘和订单分层记录，保留隐私、证据和归因边界。",
+      "implementation_owner": "geo-master-core"
+    },
+    {
+      "id": "domestic-engine-coverage",
+      "name_zh": "国内 AI 搜索覆盖",
+      "name_en": "China AI search coverage",
+      "stage": "monitoring",
+      "description": "覆盖 DeepSeek、豆包、元宝、Kimi、通义等中文平台及其地区和界面差异。",
+      "implementation_owner": "geo-master-adapter"
+    }
+  ],
+  "upstreams": [
+    {
+      "id": "geo-optim-geo",
+      "repository": "GEO-optim/GEO",
+      "project_name": "GEO and GEO-Bench",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "reference-standard",
+      "status": "absorbed",
+      "capability_ids": ["research-benchmarking", "content-rewrite-optimization"],
+      "upstream_ref": null,
+      "notes": "作为原始 GEO 研究、GEO-Bench 和可见性实验的基线，不把论文结论直接宣传为平台排名规则。",
+      "adoption": {
+        "retained": ["实验设计", "GEO-Bench 思路", "可见性与效用分开评估"],
+        "geo_master_differentiation": ["加入真实品牌事实、地区、语言、界面和商业归因边界"],
+        "prohibited": ["复制论文正文", "把单一基准结果包装成跨平台保证"]
+      }
+    },
+    {
+      "id": "autogeo",
+      "repository": "cxcscmu/AutoGEO",
+      "project_name": "AutoGEO",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "clean-room-reimplementation",
+      "status": "adapter-planned",
+      "capability_ids": ["research-benchmarking", "content-rewrite-optimization"],
+      "upstream_ref": null,
+      "notes": "吸收规则提取、改写与效用约束，不绑定其训练栈和高算力要求。",
+      "adoption": {
+        "retained": ["引擎偏好规则提取", "改写前后评估", "可见性与答案效用双指标"],
+        "geo_master_differentiation": ["增加品牌事实锁、来源约束、人工审核和多语言版本比较"],
+        "prohibited": ["未经验证自动发布改写内容", "把引擎偏好当作稳定秘密规则"]
+      }
+    },
+    {
+      "id": "geoflow",
+      "repository": "yaojingang/GEOFlow",
+      "project_name": "GEOFlow",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "external-service-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["knowledge-rag", "editorial-workflow", "multi-site-distribution", "llm-readable-delivery"],
+      "upstream_ref": null,
+      "notes": "保留独立部署，通过项目、事实、问题和内容任务 ID 与 GEO-Master 对接。",
+      "adoption": {
+        "retained": ["知识库与 RAG", "任务与审核", "多站分发", "AI 爬虫分析"],
+        "geo_master_differentiation": ["GEO-Master 负责事实治理、实验设计、统一监测与证据等级"],
+        "prohibited": ["整仓复制", "绕过人工审核自动发布高风险声明"]
+      }
+    },
+    {
+      "id": "georank",
+      "repository": "yaojingang/GEORank",
+      "project_name": "GEORank",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "concept-only",
+      "status": "absorbed",
+      "capability_ids": ["site-technical-audit", "content-rewrite-optimization", "brand-truth-governance", "llm-readable-delivery"],
+      "upstream_ref": null,
+      "notes": "吸收诊断、问答、行动方案、拓词和结构化工具的工作台思路。",
+      "adoption": {
+        "retained": ["诊断到行动方案", "问题和关键词资产", "结构化工具"],
+        "geo_master_differentiation": ["不依赖单一综合分，要求底层观测、原始证据和复测"],
+        "prohibited": ["复制私有内容", "把启发式分数作为排名承诺"]
+      }
+    },
+    {
+      "id": "getcito",
+      "repository": "ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool",
+      "project_name": "Getcito",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "external-service-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["prompt-monitoring", "mention-citation-tracking", "competitor-share-of-voice", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "作为可自托管 AI 可见性执行与看板层，输出映射到 monitor-run Schema。",
+      "adoption": {
+        "retained": ["Prompt 定时执行", "引用与品牌提取", "竞品基准", "报告"],
+        "geo_master_differentiation": ["补充国内平台、证据评级、事实准确性和界面上下文"],
+        "prohibited": ["隐瞒第三方抓取来源", "把供应商表示当作消费者界面结果"]
+      }
+    },
+    {
+      "id": "gego",
+      "repository": "AI2HU/gego",
+      "project_name": "Gego",
+      "license": "GPL-3.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "copyleft-process-boundary",
+      "integration_mode": "external-service-adapter",
+      "status": "external-only",
+      "capability_ids": ["prompt-monitoring", "mention-citation-tracking", "competitor-share-of-voice", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "仅通过进程或 HTTP 边界集成，不向 MIT 主仓复制或静态链接 GPL 代码。",
+      "adoption": {
+        "retained": ["多模型调度", "品牌别名", "引用域名分析", "仪表盘"],
+        "geo_master_differentiation": ["统一证据模型和跨工具导入，不强制其 PostgreSQL、MongoDB、etcd 架构"],
+        "prohibited": ["复制 GPL 实质代码到 MIT 核心", "模糊许可证边界"]
+      }
+    },
+    {
+      "id": "searchstack-aeo",
+      "repository": "alexpospekhov/searchstack-aeo",
+      "project_name": "Searchstack",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "cli-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["prompt-monitoring", "seo-data-integration", "llm-readable-delivery", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "用于连接 GSC、SERP、外链、AI 引用和 AI 引荐流量，不把其外部 API 结果视为免费或官方数据。",
+      "adoption": {
+        "retained": ["SEO 与 GEO 联动", "CLI 自动化", "周期 Markdown 报告", "本地模型检查"],
+        "geo_master_differentiation": ["统一人工与自动采集口径，加入国内平台和证据状态"],
+        "prohibited": ["未声明 API 成本", "将模型自身回答误作真实搜索产品结果"]
+      }
+    },
+    {
+      "id": "geo-optimizer-skill",
+      "repository": "Auriti-Labs/geo-optimizer-skill",
+      "project_name": "GEO Optimizer / GeoReady",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "cli-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["site-technical-audit", "ai-crawler-access", "llm-readable-delivery", "content-citability-analysis", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "优先复用 CLI JSON 输出和 CI 能力；GEO-Master 保留底层检查，不直接继承单一总分。",
+      "adoption": {
+        "retained": ["站点审计", "AI Bot 检查", "llms.txt 与 Schema", "历史漂移"],
+        "geo_master_differentiation": ["把分数拆成证据项并连接品牌事实、基线 Prompt 和引用复测"],
+        "prohibited": ["把 0-100 分宣传成平台排名", "无原始检查结果只存总分"]
+      }
+    },
+    {
+      "id": "geo-analyzer",
+      "repository": "houtini-ai/geo-analyzer",
+      "project_name": "GEO Analyzer",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "cli-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["content-citability-analysis", "content-rewrite-optimization"],
+      "upstream_ref": null,
+      "notes": "吸收 Claim 密度、答案前置、实体和语义结构分析，并保留模型、成本与方法版本。",
+      "adoption": {
+        "retained": ["可引用性维度", "具体修改建议", "URL 与文本分析"],
+        "geo_master_differentiation": ["加入品牌事实核对、来源可靠性、中文内容和优化后真实引用复测"],
+        "prohibited": ["把建议自动发布", "忽略模型依赖和分析成本"]
+      }
+    },
+    {
+      "id": "dualmark",
+      "repository": "dodopayments/dualmark",
+      "project_name": "Dualmark",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "library-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["llm-readable-delivery", "ai-crawler-access"],
+      "upstream_ref": null,
+      "notes": "作为 Markdown Twin 和内容协商参考实现，适用于现代前端与边缘运行时。",
+      "adoption": {
+        "retained": ["HTML/Markdown 双表示", "AI Bot 内容协商", "llms.txt", "可验证规范"],
+        "geo_master_differentiation": ["把技术可访问性与实际提及、引用、推荐结果分开衡量"],
+        "prohibited": ["宣称 Markdown Twin 保证引用", "造成面向人与 AI 的事实不一致"]
+      }
+    },
+    {
+      "id": "aeo-js",
+      "repository": "multivmlabs/aeo.js",
+      "project_name": "aeo.js",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "library-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["site-technical-audit", "ai-crawler-access", "llm-readable-delivery"],
+      "upstream_ref": null,
+      "notes": "作为多前端框架的 AEO 文件生成与站点检查组件。",
+      "adoption": {
+        "retained": ["多框架集成", "AI 文件生成", "爬虫矩阵", "站点检查"],
+        "geo_master_differentiation": ["接入统一审计结果和优化前后监测，不将生成文件视为完成 GEO"],
+        "prohibited": ["重复引入与 Dualmark 冲突的运行时", "用技术准备度替代真实可见性"]
+      }
+    },
+    {
+      "id": "aaron-marketing-skills",
+      "repository": "aaron-he-zhu/aaron-marketing-skills",
+      "project_name": "Aaron Marketing Skills",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "concept-only",
+      "status": "absorbed",
+      "capability_ids": ["agent-orchestration", "content-rewrite-optimization", "site-technical-audit", "seo-data-integration"],
+      "upstream_ref": null,
+      "notes": "吸收研究、实现、调优、评估四段式 Skill 交接和质量门禁。",
+      "adoption": {
+        "retained": ["技能契约", "阶段化工作流", "质量门禁", "跨 Agent Host"],
+        "geo_master_differentiation": ["聚焦 GEO 证据链、国内外平台差异和真实监测数据结构"],
+        "prohibited": ["整包复制 Skill 文本", "未经核验复用营销结果声明"]
+      }
+    },
+    {
+      "id": "digital-marketing-pro",
+      "repository": "indranilbanerjee/digital-marketing-pro",
+      "project_name": "Digital Marketing Pro",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "concept-only",
+      "status": "absorbed",
+      "capability_ids": ["agent-orchestration", "business-attribution", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "吸收多品牌状态、标准化交付、合规检查和营销全链路衔接思路。",
+      "adoption": {
+        "retained": ["多品牌运营", "标准交付物", "持续改进", "合规门禁"],
+        "geo_master_differentiation": ["保持 GEO 专项深度，不膨胀为全营销平台；用证据而非固定文档数量衡量完成度"],
+        "prohibited": ["复制其完整插件体系", "承诺固定时间或固定业务产出"]
+      }
+    },
+    {
+      "id": "llms-generator-toolkit",
+      "repository": "jeredhiggins/llms-generator-toolkit",
+      "project_name": "LLMS Generator Toolkit",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "cli-adapter",
+      "status": "adapter-planned",
+      "capability_ids": ["llm-readable-delivery", "site-technical-audit"],
+      "upstream_ref": null,
+      "notes": "用于网页到 Markdown、导航抽取和 llms.txt 草稿生成，必须遵守 robots 与站点条款。",
+      "adoption": {
+        "retained": ["URL 转 Markdown", "导航抽取", "llms.txt 编辑", "动态网页抓取"],
+        "geo_master_differentiation": ["增加事实去重、来源版本、内容优先级和输出验证"],
+        "prohibited": ["绕过登录或付费墙", "把 llms.txt 描述为训练或引用保证"]
+      }
+    },
+    {
+      "id": "llms-txt-standard",
+      "repository": "AnswerDotAI/llms-txt",
+      "project_name": "llms.txt",
+      "license": "Apache-2.0",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "reference-standard",
+      "status": "reference",
+      "capability_ids": ["llm-readable-delivery"],
+      "upstream_ref": null,
+      "notes": "作为推理时网站上下文和 Markdown 资源发现提案，不视为搜索平台官方排名协议。",
+      "adoption": {
+        "retained": ["文件格式", "H1 与摘要", "分组链接", "Markdown 页面约定"],
+        "geo_master_differentiation": ["配套站点审计、真实平台复测、更新机制和证据说明"],
+        "prohibited": ["宣称是所有平台强制标准", "宣称单独部署即可提升引用"]
+      }
+    },
+    {
+      "id": "geo-seo-claude",
+      "repository": "zubair-trabzada/geo-seo-claude",
+      "project_name": "GEO SEO Claude",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "concept-only",
+      "status": "absorbed",
+      "capability_ids": ["site-technical-audit", "ai-crawler-access", "llm-readable-delivery", "agent-orchestration"],
+      "upstream_ref": null,
+      "notes": "已吸收审计路由、爬虫检查、结构化数据和报告工作流。",
+      "adoption": {
+        "retained": ["审计流程", "技术检查", "报告结构"],
+        "geo_master_differentiation": ["证据等级、国内外平台、真实问题基线和长期复测"],
+        "prohibited": ["整段复制 Skill", "用审计结果替代平台实测"]
+      }
+    },
+    {
+      "id": "geo-citation-lab",
+      "repository": "yaojingang/geo-citation-lab",
+      "project_name": "GEO Citation Lab",
+      "license": "MIT code; CC BY 4.0 original content; third-party materials vary",
+      "license_verified": "2026-07-29",
+      "compatibility": "reference-only",
+      "integration_mode": "concept-only",
+      "status": "absorbed",
+      "capability_ids": ["citation-absorption-lab", "research-benchmarking", "domestic-engine-coverage"],
+      "upstream_ref": null,
+      "notes": "按材料类型分别处理许可，仅吸收实验设计、字段和复现边界。",
+      "adoption": {
+        "retained": ["引用选择", "内容吸收", "实体曝光", "Web/App 差异"],
+        "geo_master_differentiation": ["连接品牌事实、统一 monitor-run、客户业务归因和争议审查"],
+        "prohibited": ["复制受限第三方材料", "混淆代码与内容许可"]
+      }
+    },
+    {
+      "id": "elmo",
+      "repository": "elmohq/elmo",
+      "project_name": "Elmo",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "data-importer",
+      "status": "adapter-in-progress",
+      "capability_ids": ["prompt-monitoring", "mention-citation-tracking", "competitor-share-of-voice", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "现有 import_monitor_runs.py 已支持常见 Elmo prompt_runs 字段。",
+      "adoption": {
+        "retained": ["Prompt 运行", "品牌竞品监测", "引用", "周期报告"],
+        "geo_master_differentiation": ["原始回答哈希、采集方式、界面状态、事实准确性和证据复核"],
+        "prohibited": ["静默丢弃未知字段", "把导入值直接当作 GEO-Master 官方评分"]
+      }
+    },
+    {
+      "id": "geo-aeo-tracker",
+      "repository": "danishashko/geo-aeo-tracker",
+      "project_name": "GEO/AEO Tracker",
+      "license": "MIT",
+      "license_verified": "2026-07-29",
+      "compatibility": "permissive",
+      "integration_mode": "data-importer",
+      "status": "adapter-in-progress",
+      "capability_ids": ["prompt-monitoring", "mention-citation-tracking", "competitor-share-of-voice", "reporting-alerting"],
+      "upstream_ref": null,
+      "notes": "现有 import_monitor_runs.py 已支持 ScrapeRun、runs 和 state.runs 等导出形态。",
+      "adoption": {
+        "retained": ["多模型并行", "地域监测", "引用机会", "历史漂移"],
+        "geo_master_differentiation": ["统一缺失值、采集方式、证据状态和原始回答保存"],
+        "prohibited": ["复制上游 visibilityScore 为官方结论", "省略地区和界面上下文"]
+      }
+    }
+  ]
+}
