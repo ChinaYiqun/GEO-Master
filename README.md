@@ -1,13 +1,13 @@
-# GEO-Master｜面向中国品牌出海与国内 AI 搜索的开源 GEO 工程工具箱
+# GEO-Master｜面向中国品牌出海与国内 AI 搜索的开源 GEO Operating System
 
-> **GEO（Generative Engine Optimization，生成式引擎优化）/ AI Search Optimization / AI Visibility**：网站审计、AI 可见性基线、真实案例、可复现实验、Agent Skills、多模型监测、数据 Schema 与模板。
+> **GEO（Generative Engine Optimization，生成式引擎优化）/ AI Search Optimization / AI Visibility**：网站审计、品牌事实、AI 可见性基线、内容工程、多站分发、多模型监测、引用实验、数据 Schema、Agent Skills 与业务归因。
 
 **简体中文** | [English](README.en.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/ChinaYiqun/GEO-Master?style=social)](https://github.com/ChinaYiqun/GEO-Master/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Validation](https://github.com/ChinaYiqun/GEO-Master/actions/workflows/validate.yml/badge.svg)](https://github.com/ChinaYiqun/GEO-Master/actions/workflows/validate.yml)
-[![Version](https://img.shields.io/badge/version-0.3.0--dev-informational.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.4.0--dev-informational.svg)](CHANGELOG.md)
 
 > [!IMPORTANT]
 > **🚀 企业 GEO 产品化与落地方案**
@@ -37,6 +37,8 @@ GEO-Master 面向两类真实场景：
 | 外部监测数据接入 | [Elmo / GEO-AEO Tracker 导入器](scripts/import_monitor_runs.py) |
 | 可复现数据分析 | [可见性汇总 CLI](scripts/summarize_visibility.py) + [零依赖测试](scripts/test_summarize_visibility.py) |
 | 引用选择与内容吸收实验 | [`geo-master-citation-lab` Skill](.agents/skills/geo-master-citation-lab/SKILL.md) |
+| 上游能力与许可证治理 | [19 个项目能力注册表](integrations/upstream-capabilities.json) + [注册表 Schema](schemas/integration-registry.schema.json) |
+| 平台化集成路线 | [GEO-Master 平台架构蓝图](docs/GEO-MASTER-PLATFORM-ARCHITECTURE.md) |
 | 真实案例和证据边界 | [案例库](cases/README.md) + [证据评级标准](EVIDENCE-STANDARD.md) |
 | 机器可读实验记录 | [数据 Schema](schemas/) + [示例数据规范](data/README.md) |
 | 可复制执行资产 | [模板库](templates/README.md) + [Playbook](playbooks/README.md) |
@@ -61,6 +63,7 @@ python scripts/summarize_visibility.py templates/weekly-monitoring.csv \
 python scripts/test_summarize_visibility.py
 python scripts/test_import_monitor_runs.py
 python scripts/validate_examples.py
+python scripts/validate_integration_registry.py
 ```
 
 可见性汇总脚本只使用 Python 标准库。`unknown`、空值和不可判断结果不会被静默当成失败或 0，而是从对应指标分母中排除。
@@ -75,10 +78,39 @@ python scripts/validate_examples.py
 | 多模型监测 | 跟踪品牌、竞品、引用域名、地域差异、趋势和漂移告警 | [`geo-master-monitor` Skill](.agents/skills/geo-master-monitor/SKILL.md) |
 | 数据归一化 | 将 Elmo、GEO/AEO Tracker 等外部运行数据转换为统一 Schema | [监测导入器](scripts/README.md) |
 | 内容工程 | 从事实库、问题地图到生成、审核、发布、多站分发和复测 | [工具生态与集成](integrations/README.md) |
+| 能力注册与适配治理 | 记录上游项目、许可证、能力、集成模式、状态、差异化和禁止项 | [上游能力注册表](integrations/upstream-capabilities.json) |
 | 案例与证据 | 拆解国内外 GEO 案例，区分宣称、观察、复现和验证 | [案例库](cases/README.md) |
 | 模板与数据 | 品牌事实库、问题集、监测表、审计表、内容 Brief、归因表和 Schema | [模板资产](templates/README.md) |
 
-完整架构：**[GEO-Master 工具生态与集成路线](integrations/README.md)**
+完整架构：**[GEO-Master 平台架构蓝图](docs/GEO-MASTER-PLATFORM-ARCHITECTURE.md)** ｜ **[工具生态与集成路线](integrations/README.md)**
+
+## GEO-Master 为什么要做成 Operating System
+
+现有开源项目通常解决一个环节：
+
+```text
+网站打分
+或 llms.txt
+或内容改写
+或多站发布
+或 Prompt 监测
+或竞品看板
+```
+
+GEO-Master 将这些能力统一到三个平面：
+
+```text
+Control Plane
+  品牌事实、问题、实验、任务、策略和能力注册
+
+Execution Plane
+  审计、内容、发布、监测、引用实验和 SEO Adapter
+
+Evidence Plane
+  原始证据 → 标准数据 → 审核结果 → 派生指标
+```
+
+这样外部工具可以替换，而品牌事实、问题资产、原始证据和历史结果不会被锁在单一平台中。
 
 ## 30 分钟建立第一版 AI 可见性基线
 
@@ -152,31 +184,40 @@ flowchart LR
 各层职责：
 
 ```text
-GEO-Master
-  标准、案例、模板、审计、实验、监测契约和证据边界
+GEO-Master Core
+  事实、问题、标准、案例、实验、监测契约、证据和归因边界
 
-外部工具
-  内容生产、多站分发、多模型执行、看板和数据采集
+GEO-Master Adapters
+  审计器、内容系统、发布渠道、模型执行器、SEO 数据和外部导入
 
-企业产品
-  部署、实施、长期运营、报告和支持
+External Runtimes
+  上游 UI、模型调用、队列、数据库、抓取、部署和独立许可证责任
 ```
 
-## 已吸收的开源能力
+## 已纳入的开源能力
 
-GEO-Master 采用“吸收能力与架构、保留上游独立部署”的方式扩展：
+GEO-Master 采用“能力成为子集、上游保持独立”的方式扩展。当前注册表纳入 19 个项目，包括：
 
-| 上游项目 | 吸收的能力 |
-|---|---|
-| `zubair-trabzada/geo-seo-claude` | GEO/SEO 审计路由、爬虫检查、结构化数据和报告工作流 |
-| `yaojingang/GEOFlow` | 知识库、RAG、任务、审核、发布和多站点分发链路 |
-| `yaojingang/geo-citation-lab` | 引用选择、内容吸收、实体曝光和中文生成式搜索实证研究 |
-| `elmohq/elmo` | 自托管 Prompt 运行、品牌/竞品监测、引用和周期报告 |
-| `danishashko/geo-aeo-tracker` | 多模型并行、地域监测、引用机会、历史对比和漂移告警 |
+- 研究：`GEO-optim/GEO`、`cxcscmu/AutoGEO`、`geo-citation-lab`；
+- 内容与运营：GEOFlow、GEORank、Aaron Marketing Skills、Digital Marketing Pro；
+- 技术与 AI 可读层：GeoReady、GEO Analyzer、Dualmark、aeo.js、LLMS Generator Toolkit、llms.txt；
+- 监测与分析：Getcito、Gego、Searchstack、Elmo、GEO/AEO Tracker；
+- 审计工作流：`geo-seo-claude`。
 
-许可证、数据边界和具体适配方式见：[工具生态与集成架构](integrations/README.md)。
+每个项目都记录：
 
-当前没有把这些项目整仓复制进来，也没有复制大型数据集、论文 PDF 或大段上游代码。后续如果引入实质代码，将保留版权、许可证、修改说明和 NOTICE。
+```text
+许可证和核验日期
+集成模式
+当前吸收状态
+保留的能力
+GEO-Master 的差异化
+明确禁止的动作
+```
+
+完整机器记录见 [`integrations/upstream-capabilities.json`](integrations/upstream-capabilities.json)。
+
+当前没有把这些项目整仓复制进来，也没有复制大型数据集、论文 PDF 或大段上游代码。后续如果引入实质代码，将保留版权、许可证、修改说明和 NOTICE；GPL 项目只通过 HTTP、CLI 或独立进程边界集成。
 
 ## 内容与数据资产
 
@@ -241,13 +282,13 @@ GEO-Master/
 ├── cases/           # 案例、证据核验与失败模式
 ├── playbooks/       # 可执行流程
 ├── explainers/      # 指标、机制与边界
-├── integrations/    # 工具生态和适配架构
+├── integrations/    # 工具生态、能力注册表和适配架构
 ├── templates/       # CSV、YAML、Markdown 模板
 ├── references/      # 原始来源与阅读索引
 ├── data/            # 实验数据示例与目录规范
-├── schemas/         # 机器可读数据结构
+├── schemas/         # 业务与集成数据结构
 ├── scripts/         # 导入、校验和数据分析工具
-├── docs/            # 项目与仓库运营文档
+├── docs/            # 平台架构与仓库运营文档
 ├── AGENTS.md        # AI Coding 工作规则
 └── ROADMAP.md       # 项目路线图
 ```
@@ -265,11 +306,13 @@ GEO-Master/
 ## 从这里开始
 
 - [新读者导航](START-HERE.md)
+- [GEO-Master 平台架构](docs/GEO-MASTER-PLATFORM-ARCHITECTURE.md)
+- [工具生态与集成](integrations/README.md)
+- [上游能力注册表](integrations/upstream-capabilities.json)
 - [案例库](cases/README.md)
 - [AI 可见性基线测试](playbooks/ai-visibility-baseline.md)
 - [模板与数据资产](templates/README.md)
 - [证据标准](EVIDENCE-STANDARD.md)
-- [工具生态与集成](integrations/README.md)
 - [90 天路线图](ROADMAP.md)
 - [GitHub 搜索发现性检查表](docs/REPOSITORY-DISCOVERY.md)
 
