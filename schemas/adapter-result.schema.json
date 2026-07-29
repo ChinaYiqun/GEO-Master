@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChinaYiqun/GEO-Master/schemas/adapter-result.schema.json",
+  "title": "GEO-Master Adapter Result",
+  "description": "Provider-neutral execution envelope for GEO-Master CLI, library, HTTP, MCP, external-service, and data-import adapters.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result_id",
+    "project_id",
+    "task_id",
+    "capability_id",
+    "adapter",
+    "started_at",
+    "completed_at",
+    "status",
+    "execution",
+    "raw_artifacts",
+    "normalized_artifacts",
+    "warnings",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "integration_mode"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "integration_mode": {
+          "type": "string",
+          "enum": [
+            "native",
+            "cli-adapter",
+            "library-adapter",
+            "external-service-adapter",
+            "data-importer",
+            "manual-adapter"
+          ]
+        },
+        "upstream_repository": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "upstream_version": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "running",
+        "completed",
+        "partial",
+        "failed",
+        "cancelled",
+        "blocked"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collection_method",
+        "attempt",
+        "latency_ms"
+      ],
+      "properties": {
+        "collection_method": {
+          "type": "string",
+          "enum": [
+            "native",
+            "official_api",
+            "consumer_web_manual",
+            "consumer_app_manual",
+            "browser_automation",
+            "third_party_scraper",
+            "data_vendor",
+            "external_cli",
+            "external_http",
+            "imported_dataset",
+            "unknown"
+          ]
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_id": {
+          "type": ["string", "null"]
+        },
+        "command": {
+          "type": ["string", "null"]
+        },
+        "latency_ms": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "cost": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "cost_currency": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    },
+    "raw_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "normalized_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "warning", "error"]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "raw_preserved"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "machine_reviewed",
+            "human_reviewed",
+            "disputed",
+            "not_evaluable"
+          ]
+        },
+        "raw_preserved": {
+          "type": "boolean"
+        },
+        "reviewer": {
+          "type": ["string", "null"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "kind",
+        "location",
+        "media_type"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "answer",
+            "screenshot",
+            "page-snapshot",
+            "audit-report",
+            "content",
+            "log",
+            "dataset",
+            "normalized-records",
+            "report",
+            "other"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "schema_id": {
+          "type": ["string", "null"]
+        },
+        "record_count": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1.0",
+  "result_id": "ADAPTER-RESULT-20260729-001",
+  "project_id": "PROJECT-TALIX-US",
+  "task_id": "TASK-AUDIT-001",
+  "capability_id": "site-technical-audit",
+  "adapter": {
+    "name": "geoready-cli",
+    "version": "0.1.0",
+    "integration_mode": "cli-adapter",
+    "upstream_repository": "Auriti-Labs/geo-optimizer-skill",
+    "upstream_version": "unknown"
+  },
+  "started_at": "2026-07-29T06:00:00Z",
+  "completed_at": "2026-07-29T06:00:12Z",
+  "status": "completed",
+  "execution": {
+    "collection_method": "external_cli",
+    "attempt": 1,
+    "request_id": null,
+    "command": "geo audit --url https://example.com --format json",
+    "latency_ms": 12000,
+    "cost": 0,
+    "cost_currency": "USD"
+  },
+  "raw_artifacts": [
+    {
+      "artifact_id": "RAW-AUDIT-001",
+      "kind": "audit-report",
+      "location": "private/adapters/geoready/raw-audit.json",
+      "media_type": "application/json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "schema_id": null,
+      "record_count": 1
+    }
+  ],
+  "normalized_artifacts": [
+    {
+      "artifact_id": "NORMALIZED-FINDINGS-001",
+      "kind": "normalized-records",
+      "location": "private/adapters/geoready/findings.jsonl",
+      "media_type": "application/x-ndjson",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "geo-master/audit-finding/0.1.0",
+      "record_count": 12
+    }
+  ],
+  "warnings": [
+    {
+      "code": "UPSTREAM_SCORE_NOT_CANONICAL",
+      "severity": "info",
+      "message": "The upstream aggregate score is preserved for reference but is not a GEO-Master official metric."
+    }
+  ],
+  "summary": {
+    "finding_count": 12,
+    "critical_count": 2,
+    "upstream_score": 68
+  },
+  "evidence": {
+    "state": "machine_reviewed",
+    "raw_preserved": true,
+    "reviewer": "geo-master-adapter",
+    "notes": "Human review is required before changing production crawler or publishing settings."
+  }
+}

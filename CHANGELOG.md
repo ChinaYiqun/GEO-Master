@@ -8,7 +8,36 @@ GEO-Master 的重要更新记录在这里。
 - `MINOR`：新增案例、模板、Playbook、数据集或工具；
 - `PATCH`：纠错、补充证据、更新链接和小幅改进。
 
-## Unreleased — 0.3.0-dev
+## Unreleased — 0.4.0-dev
+
+### Added
+
+- `docs/GEO-MASTER-PLATFORM-ARCHITECTURE.md`：GEO-Master Control Plane、Execution Plane、Evidence Plane、适配器契约和分阶段实施蓝图；
+- `integrations/upstream-capabilities.json`：19 个 GEO、AEO、AI 可见性、内容运营和营销 Agent 上游项目的机器可读能力注册表；
+- `schemas/integration-registry.schema.json`：上游能力、许可证、集成模式、状态、差异化和禁止项 Schema；
+- `scripts/validate_integration_registry.py`：校验注册表结构、能力引用、ID 唯一性与 GPL 进程边界；
+- CI 增加集成能力注册表编译和验证步骤。
+
+### Changed
+
+- README 将项目定位从 GEO 工程工具箱升级为可插拔 GEO Operating System；
+- `integrations/README.md` 重构为统一能力地图、三层职责、集成模式、数据原则和实施顺序；
+- 版本标识更新为 `0.4.0-dev`。
+
+### Integrated ecosystem
+
+当前注册表纳入：
+
+- `GEO-optim/GEO`、`cxcscmu/AutoGEO`；
+- `yaojingang/GEOFlow`、`yaojingang/GEORank`；
+- Getcito、Gego、Searchstack、Elmo、GEO/AEO Tracker；
+- GeoReady、GEO Analyzer、Dualmark、aeo.js、LLMS Generator Toolkit、llms.txt；
+- Aaron Marketing Skills、Digital Marketing Pro；
+- `geo-seo-claude`、`geo-citation-lab`。
+
+这些项目成为 GEO-Master 能力体系的子集，但默认不整仓复制。MIT、Apache、GPL、CC 和混合许可分别使用适配器、独立重实现、进程边界或引用边界。
+
+## 0.3.0-dev
 
 ### Added
 
