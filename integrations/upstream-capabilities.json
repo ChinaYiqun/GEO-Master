@@ -290,10 +290,10 @@
       "license_verified": "2026-07-29",
       "compatibility": "permissive",
       "integration_mode": "cli-adapter",
-      "status": "adapter-planned",
+      "status": "absorbed",
       "capability_ids": ["site-technical-audit", "ai-crawler-access", "llm-readable-delivery", "content-citability-analysis", "reporting-alerting"],
-      "upstream_ref": null,
-      "notes": "优先复用 CLI JSON 输出和 CI 能力；GEO-Master 保留底层检查，不直接继承单一总分。",
+      "upstream_ref": "68f420b6b8ac0079f150be0bcfd78a8eee6808a2",
+      "notes": "GeoReady CLI JSON 已通过 scripts/geoready_audit_adapter.py 接入；保存原始报告并映射为底层 Finding，不直接继承单一总分。",
       "adoption": {
         "retained": ["站点审计", "AI Bot 检查", "llms.txt 与 Schema", "历史漂移"],
         "geo_master_differentiation": ["把分数拆成证据项并连接品牌事实、基线 Prompt 和引用复测"],
