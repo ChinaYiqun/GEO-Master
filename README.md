@@ -9,6 +9,11 @@
 [![Validation](https://github.com/ChinaYiqun/GEO-Master/actions/workflows/validate.yml/badge.svg)](https://github.com/ChinaYiqun/GEO-Master/actions/workflows/validate.yml)
 [![Version](https://img.shields.io/badge/version-0.3.0--dev-informational.svg)](CHANGELOG.md)
 
+> [!IMPORTANT]
+> **🚀 企业 GEO 产品化与落地方案**
+>
+> 面向真实品牌的网站审计、AI 可见性监测、内容工程与持续运营：**[立即查看产品介绍 →](https://tst.ahupo.cn/intro/)**
+
 GEO-Master 面向两类真实场景：
 
 - **中国品牌出海**：ChatGPT、Perplexity、Gemini、Claude、Google AI Search 等国际生成式搜索；
