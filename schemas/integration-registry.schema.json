@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChinaYiqun/GEO-Master/schemas/integration-registry.schema.json",
+  "title": "GEO-Master Integration Capability Registry",
+  "description": "Machine-readable registry for GEO capabilities, upstream projects, license boundaries, and adoption status.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "updated_at",
+    "capabilities",
+    "upstreams"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name_zh",
+          "name_en",
+          "stage",
+          "description",
+          "implementation_owner"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "name_zh": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "research",
+              "truth",
+              "discoverability",
+              "audit",
+              "content",
+              "distribution",
+              "monitoring",
+              "citation",
+              "analytics",
+              "orchestration",
+              "governance"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implementation_owner": {
+            "type": "string",
+            "enum": [
+              "geo-master-core",
+              "geo-master-adapter",
+              "external-runtime"
+            ]
+          }
+        }
+      }
+    },
+    "upstreams": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "repository",
+          "project_name",
+          "license",
+          "license_verified",
+          "compatibility",
+          "integration_mode",
+          "status",
+          "capability_ids",
+          "adoption"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+          },
+          "project_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license_verified": {
+            "type": "string",
+            "format": "date"
+          },
+          "compatibility": {
+            "type": "string",
+            "enum": [
+              "permissive",
+              "copyleft-process-boundary",
+              "reference-only"
+            ]
+          },
+          "integration_mode": {
+            "type": "string",
+            "enum": [
+              "concept-only",
+              "clean-room-reimplementation",
+              "external-service-adapter",
+              "cli-adapter",
+              "library-adapter",
+              "data-importer",
+              "reference-standard"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "absorbed",
+              "adapter-planned",
+              "adapter-in-progress",
+              "external-only",
+              "reference"
+            ]
+          },
+          "capability_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]+$"
+            }
+          },
+          "upstream_ref": {
+            "type": ["string", "null"]
+          },
+          "notes": {
+            "type": ["string", "null"]
+          },
+          "adoption": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "retained",
+              "geo_master_differentiation",
+              "prohibited"
+            ],
+            "properties": {
+              "retained": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "geo_master_differentiation": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "prohibited": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
