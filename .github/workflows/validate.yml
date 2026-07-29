@@ -31,10 +31,15 @@ jobs:
           python -m py_compile \
             scripts/import_monitor_runs.py \
             scripts/test_import_monitor_runs.py \
+            scripts/geoready_audit_adapter.py \
+            scripts/test_geoready_audit_adapter.py \
             scripts/summarize_visibility.py \
             scripts/test_summarize_visibility.py \
             scripts/validate_examples.py \
             scripts/validate_integration_registry.py
+
+      - name: Test GeoReady audit adapter
+        run: python scripts/test_geoready_audit_adapter.py
 
       - name: Test monitoring adapters
         run: python scripts/test_import_monitor_runs.py
