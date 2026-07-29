@@ -25,6 +25,10 @@ PAIRS = [
         ROOT / "schemas" / "content-task.schema.json",
         ROOT / "data" / "examples" / "content-task.example.json",
     ),
+    (
+        ROOT / "schemas" / "adapter-result.schema.json",
+        ROOT / "data" / "examples" / "adapter-result.example.json",
+    ),
 ]
 
 
