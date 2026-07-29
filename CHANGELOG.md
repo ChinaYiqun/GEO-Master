@@ -19,6 +19,11 @@ GEO-Master 的重要更新记录在这里。
 - `schemas/monitor-run.schema.json`：兼容人工测试、外部数据和自托管工具的监测运行 Schema；
 - `data/examples/monitor-run.example.json`：标准多模型监测记录示例；
 - `templates/citation-audit.csv`：AI 引用页面、位置、来源类型、内容吸收和实体曝光审计表；
+- `scripts/import_monitor_runs.py`：Elmo 与 GEO/AEO Tracker 监测运行导入器；
+- `scripts/summarize_visibility.py`：零依赖的监测 CSV 汇总 CLI，输出总体和逐平台可见性指标；
+- `scripts/test_summarize_visibility.py`：验证缺失值分母、多平台分组和指标计算的标准库测试；
+- `README.en.md`：面向全球开发者、出海品牌和英文搜索的项目入口；
+- `docs/REPOSITORY-DISCOVERY.md`：GitHub About、Topics、Release 与搜索发现性检查表；
 - `AGENTS.md`：标准 AI Coding 工作规则和外部开源项目吸收规范；
 - `references/GEO-READING-LIST.md`：GEO 学术、行业、中文研报与媒体调查来源的结构化阅读索引；
 - `explainers/geo-literature-synthesis.md`：跨来源共识、分歧、证据地图、企业执行路径与合规边界；
@@ -33,9 +38,12 @@ GEO-Master 的重要更新记录在这里。
 
 ### Changed
 
-- 重构主 README，将项目从资料导航升级为“审计—内容运营—多模型监测—引用实验—商业归因”的工具体系入口；
+- 重构主 README，将 `Generative Engine Optimization`、中国品牌出海、国内 AI 搜索、具体平台和可运行证据前置，降低与地理信息 `GEO` 的搜索歧义；
+- README 增加 5 分钟可复现实验、工程校验命令和能力—资产核验矩阵；
+- CI 增加可见性汇总脚本的编译、测试与 Markdown/JSON 冒烟校验；
+- `scripts/README.md` 增加可见性汇总 CLI 的指标口径、缺失值规则和本地验证流程；
 - 将 README 中的大段 AI Coding 规则迁移到 `AGENTS.md`；
-- README 增加商业产品入口，并通过 UTM 区分 GitHub 导流位置；
+- README 保留企业产品入口，但将其置于开源能力、代码和证据说明之后；
 - `START-HERE.md` 增加产品化方案入口；
 - 主 README 增加学术、行业和媒体阅读入口；
 - `explainers/README.md` 增加 GEO 文献综合解读入口；
@@ -53,11 +61,8 @@ GEO-Master 的重要更新记录在这里。
 
 ### Planned
 
-- GEO 服务商验收表；
-- 官网审计表；
-- 月度报告模板；
 - 首次真实品牌 30 天基线实验；
-- Elmo 与 GEO/AEO Tracker 的机器可读导入/导出适配器；
+- 国内多平台回答差异实验；
 - GEOFlow 内容任务与 GEO-Master 事实/问题 ID 的映射规范；
 - 机器可读案例索引与自动校验流程；
 - 第一个正式 `v0.3.0` Release。
@@ -78,31 +83,3 @@ GEO-Master 的重要更新记录在这里。
 ### Changed
 
 - 更新 `START-HERE.md`，将规划中的入口替换为实际可用文件；
-- 更新 `ROADMAP.md`，同步真实完成进度和 Release 计划；
-- 明确最小实验要求和商业归因边界。
-
-## 0.1.0 — 2026-07-17
-
-### Added
-
-- 项目定位和主 README；
-- 案例证据评级标准；
-- 完整 CASE 模板；
-- 第三方运营案例简版模板；
-- 实验室仪器 Reddit GEO 案例拆解；
-- Ahrefs Reddit 需求研究案例；
-- Ahrefs Brand Radar 监测案例；
-- Tenten Reddit GEO 方法拆解；
-- 国内 GEO 原文与信源索引；
-- 国内 GEO 执行手册；
-- 老钱聊GEO 官网结构拆解；
-- 招财兔 GEO 品牌事实库拆解；
-- 贡献指南和首批公开 Issues。
-
-## 维护规则
-
-- 新增完整案例、模板、Playbook、数据集或工具：记录在 `Added`；
-- 修正案例证据等级、关键结论或项目结构：记录在 `Changed`；
-- 删除失效或不合规内容：记录在 `Removed`；
-- 修正错误数据、链接和作者信息：记录在 `Fixed`；
-- 平台变化导致方法不再适用：记录在 `Deprecated`。
