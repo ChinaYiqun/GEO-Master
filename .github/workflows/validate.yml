@@ -33,7 +33,8 @@ jobs:
             scripts/test_import_monitor_runs.py \
             scripts/summarize_visibility.py \
             scripts/test_summarize_visibility.py \
-            scripts/validate_examples.py
+            scripts/validate_examples.py \
+            scripts/validate_integration_registry.py
 
       - name: Test monitoring adapters
         run: python scripts/test_import_monitor_runs.py
@@ -48,3 +49,6 @@ jobs:
 
       - name: Validate JSON schemas and examples
         run: python scripts/validate_examples.py
+
+      - name: Validate integration capability registry
+        run: python scripts/validate_integration_registry.py
