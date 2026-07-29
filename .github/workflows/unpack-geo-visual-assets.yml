@@ -1,0 +1,38 @@
+name: Unpack GEO visual assets
+
+on:
+  push:
+    branches:
+      - agent/add-geo-visual-assets
+    paths:
+      - assets/geo-master/assets.tar.gz.b64
+      - .github/workflows/unpack-geo-visual-assets.yml
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/add-geo-visual-assets
+          fetch-depth: 0
+
+      - name: Decode and extract WebP assets
+        run: |
+          base64 --decode assets/geo-master/assets.tar.gz.b64 > /tmp/geo-master-assets.tar.gz
+          tar -xzf /tmp/geo-master-assets.tar.gz -C assets/geo-master
+          rm assets/geo-master/assets.tar.gz.b64
+          rm .github/workflows/unpack-geo-visual-assets.yml
+          test "$(find assets/geo-master -maxdepth 1 -name '*.webp' | wc -l)" -eq 10
+
+      - name: Commit extracted assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/geo-master .github/workflows/unpack-geo-visual-assets.yml
+          git commit -m "feat(assets): add optimized GEO visual library"
+          git push origin HEAD:agent/add-geo-visual-assets
