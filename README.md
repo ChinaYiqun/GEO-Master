@@ -14,10 +14,18 @@
 >
 > 面向真实品牌的网站审计、AI 可见性监测、内容工程与持续运营：**[立即查看产品介绍 →](https://tst.ahupo.cn/intro/)**
 
+<p align="center">
+  <img src="assets/geo-master/geo-master-hero.webp" alt="GEO-Master AI Search 与 AI Visibility 总览" width="100%" />
+</p>
+
 GEO-Master 面向两类真实场景：
 
 - **中国品牌出海**：ChatGPT、Perplexity、Gemini、Claude、Google AI Search 等国际生成式搜索；
 - **国内 AI 搜索**：DeepSeek、豆包、腾讯元宝、Kimi、通义千问等中文 AI 平台。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-china-global-ai-search.webp" alt="GEO-Master 国内与全球 AI 搜索生态" width="100%" />
+</p>
 
 项目研究品牌如何在生成式平台中：
 
@@ -27,11 +35,19 @@ GEO-Master 面向两类真实场景：
 
 它不是只讲概念的 GEO 教程，也不会把一次 AI 回答、爬虫可访问、Schema、`llms.txt`、外链数量或启发式总分直接包装成稳定排名和商业成功。
 
+## 一张图看懂 GEO-Master
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-overview.webp" alt="GEO-Master 十项核心能力总览" width="100%" />
+</p>
+
+> 图中数值、品牌和界面数据仅用于解释能力与信息结构，不代表真实客户、真实平台排名或正式 Benchmark 结果。真实结论必须来自仓库记录的基线、原始回答、证据与复测数据。
+
 ## 为什么它不是纯理论项目
 
 | 能力声明 | 可以直接核验的仓库资产 |
 |---|---|
-| 网站 GEO 审计 | [`geo-master` Agent Skill](.agents/skills/geo-master/SKILL.md) |
+| 网站 GEO 审计 | [`geo-master` Agent Skill](.agents/skills/geo-master/SKILL.md) + [GeoReady Adapter](scripts/geoready_audit_adapter.py) |
 | AI 可见性基线测试 | [基线 Playbook](playbooks/ai-visibility-baseline.md) + [30 条中英文问题集](templates/baseline-query-set.csv) |
 | 多模型监测与统一数据契约 | [`geo-master-monitor` Skill](.agents/skills/geo-master-monitor/SKILL.md) + [`monitor-run.schema.json`](schemas/monitor-run.schema.json) |
 | 外部监测数据接入 | [Elmo / GEO-AEO Tracker 导入器](scripts/import_monitor_runs.py) |
@@ -42,6 +58,117 @@ GEO-Master 面向两类真实场景：
 | 真实案例和证据边界 | [案例库](cases/README.md) + [证据评级标准](EVIDENCE-STANDARD.md) |
 | 机器可读实验记录 | [数据 Schema](schemas/) + [示例数据规范](data/README.md) |
 | 可复制执行资产 | [模板库](templates/README.md) + [Playbook](playbooks/README.md) |
+
+## 网站 GEO 审计
+
+先回答一个基础问题：网站是否具备被 AI 搜索系统发现、抓取、理解和引用的条件。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-website-audit.webp" alt="GEO-Master 网站 GEO 审计维度" width="100%" />
+</p>
+
+GEO-Master 将审计结果拆成可追溯 Finding，而不是只保留一个总分。GeoReady Adapter 可以保存原始报告、标准化问题、生成整改清单，并在优化后复测差异。
+
+```bash
+python scripts/geoready_audit_adapter.py \
+  --url https://example.com \
+  --project-id PROJECT-DEMO \
+  --task-id AUDIT-001 \
+  --output-dir out/audit
+```
+
+## AI 可见性基线
+
+没有基线，就无法严谨判断 GEO 是否真的提升。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-ai-visibility-baseline.webp" alt="GEO-Master AI 可见性基线测试" width="100%" />
+</p>
+
+第一次使用，建议先复制三个文件：
+
+1. [AI 可见性基线测试 Playbook](playbooks/ai-visibility-baseline.md)
+2. [30 条中英文基线问题集](templates/baseline-query-set.csv)
+3. [每周 GEO 监测表](templates/weekly-monitoring.csv)
+
+最小实验：
+
+```text
+10 个真实用户问题
+× 2 个 AI 平台
+× 每题运行 1–3 次
+→ 记录提及、引用、推荐和事实准确性
+```
+
+更稳妥的基线应至少包含 20 个问题、2 个平台，并对高优先级问题运行 3 次，同时记录日期、地区、语言、登录状态、会话状态、模型或模式、原始回答和引用 URL。
+
+## 多模型监测
+
+GEO 不是单个平台优化。不同模型、不同地区、Web/App、登录状态和搜索模式都可能产生不同答案。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-multi-model-monitoring.webp" alt="GEO-Master 多模型 AI 可见性监测" width="100%" />
+</p>
+
+仓库提供统一的监测运行 Schema、外部数据导入器与聚合脚本，用于跟踪：
+
+- 品牌提及率、官网引用率、推荐率、事实准确率；
+- 竞品 Share of Voice；
+- 引用域名和页面机会；
+- 地区、语言与平台差异；
+- 历史趋势与漂移告警。
+
+## 品牌事实与证据治理
+
+AI 可见性不能建立在错误事实之上。品牌名称、型号、参数、日期、价格、认证和售后信息需要有可追溯来源。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-facts-governance.webp" alt="GEO-Master 品牌事实与证据治理" width="100%" />
+</p>
+
+核心资产：
+
+- [`brand-facts.yaml`](templates/brand-facts.yaml)：品牌事实库；
+- [`claims-and-sources.csv`](templates/claims-and-sources.csv)：声明与来源；
+- [`EVIDENCE-STANDARD.md`](EVIDENCE-STANDARD.md)：证据等级与边界。
+
+## 内容工程与优化验证
+
+GEO 内容不是“批量写文章”，而是从真实问题、事实证据和内容缺口出发，经过审核、发布和复测形成闭环。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-content-workflow.webp" alt="GEO-Master 内容工程与优化验证闭环" width="100%" />
+</p>
+
+典型链路：
+
+```text
+问题地图
+→ Content Brief
+→ 内容生产
+→ 事实与合规审核
+→ 发布与分发
+→ AI 平台复测
+→ 证据与业务结果回流
+```
+
+## 可复现实验
+
+单次截图只能证明“某一次出现过”。GEO-Master 更强调固定变量、重复运行、前后对照和完整证据链。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-reproducible-experiments.webp" alt="GEO-Master 可复现实验设计" width="100%" />
+</p>
+
+## Schema 与数据模板
+
+数据资产优先使用机器可读格式，方便不同 Agent、CLI、监测器和企业系统复用。
+
+<p align="center">
+  <img src="assets/geo-master/geo-master-schemas-templates.webp" alt="GEO-Master Schema 与数据模板" width="100%" />
+</p>
+
+主要资产包括：CSV、YAML、JSON Schema、JSONL 运行记录、内容 Brief、监测表和业务归因表。完整入口见 [模板与数据资产](templates/README.md) 与 [数据规范](data/README.md)。
 
 ## 5 分钟可复现实验
 
@@ -60,6 +187,7 @@ python scripts/summarize_visibility.py templates/weekly-monitoring.csv \
 运行工程校验：
 
 ```bash
+python scripts/test_geoready_audit_adapter.py
 python scripts/test_summarize_visibility.py
 python scripts/test_import_monitor_runs.py
 python scripts/validate_examples.py
@@ -112,61 +240,13 @@ Evidence Plane
 
 这样外部工具可以替换，而品牌事实、问题资产、原始证据和历史结果不会被锁在单一平台中。
 
-## 30 分钟建立第一版 AI 可见性基线
-
-第一次使用，先复制三个文件：
-
-1. [AI 可见性基线测试 Playbook](playbooks/ai-visibility-baseline.md)
-2. [30 条中英文基线问题集](templates/baseline-query-set.csv)
-3. [每周 GEO 监测表](templates/weekly-monitoring.csv)
-
-最小实验：
-
-```text
-10 个真实用户问题
-× 2 个 AI 平台
-× 每题运行 1–3 次
-→ 记录提及、引用、推荐和事实准确性
-```
-
-更稳妥的基线应至少包含 20 个问题、2 个平台，并对高优先级问题运行 3 次，同时记录日期、地区、语言、登录状态、会话状态、模型或模式、原始回答和引用 URL。
-
-没有基线、原始回答、运行环境和重复测试记录时，不应宣布“GEO 提升了多少”或“带来了多少订单”。
-
 ## 三个 Agent Skills
 
-仓库在 `.agents/skills/` 中提供三个互补入口。
+仓库在 `.agents/skills/` 中提供三个互补入口：
 
-### `geo-master`
-
-负责：
-
-- 网站快速诊断和完整审计；
-- 品牌事实与来源治理；
-- 问题基线和内容规划；
-- GEOFlow 式内容生产、审核和分发设计；
-- 优化前后验证。
-
-### `geo-master-citation-lab`
-
-负责：
-
-- 受控 Prompt 实验；
-- 引用选择与引用吸收；
-- 品牌和产品实体曝光；
-- 平台、地区、语言、Web/App 差异；
-- 外部研究数据的许可合规导入。
-
-### `geo-master-monitor`
-
-负责：
-
-- 多模型并行监测；
-- 品牌与竞品 Share of Voice；
-- 引用域名和页面机会；
-- 地区差异和历史变化；
-- 漂移告警、周报和月报；
-- 对接 Elmo、GEO/AEO Tracker 等自托管系统。
+- **`geo-master`**：网站审计、品牌事实、问题基线、内容规划、优化验证；
+- **`geo-master-citation-lab`**：受控 Prompt、引用选择、内容吸收、实体曝光和跨平台差异实验；
+- **`geo-master-monitor`**：多模型监测、竞品 Share of Voice、引用机会、地域变化和漂移告警。
 
 ## 完整工作链
 
@@ -204,42 +284,9 @@ GEO-Master 采用“能力成为子集、上游保持独立”的方式扩展。
 - 监测与分析：Getcito、Gego、Searchstack、Elmo、GEO/AEO Tracker；
 - 审计工作流：`geo-seo-claude`。
 
-每个项目都记录：
-
-```text
-许可证和核验日期
-集成模式
-当前吸收状态
-保留的能力
-GEO-Master 的差异化
-明确禁止的动作
-```
-
-完整机器记录见 [`integrations/upstream-capabilities.json`](integrations/upstream-capabilities.json)。
+每个项目都记录许可证、核验日期、集成模式、当前状态、保留能力、差异化和明确禁止项。完整机器记录见 [`integrations/upstream-capabilities.json`](integrations/upstream-capabilities.json)。
 
 当前没有把这些项目整仓复制进来，也没有复制大型数据集、论文 PDF 或大段上游代码。后续如果引入实质代码，将保留版权、许可证、修改说明和 NOTICE；GPL 项目只通过 HTTP、CLI 或独立进程边界集成。
-
-## 内容与数据资产
-
-### 案例和方法
-
-- [新读者从这里开始](START-HERE.md)
-- [案例库](cases/README.md)
-- [执行 Playbook](playbooks/README.md)
-- [技术解释](explainers/README.md)
-- [GEO 学术、行业与媒体资料索引](references/GEO-READING-LIST.md)
-- [证据与案例评级标准](EVIDENCE-STANDARD.md)
-
-### 可复制模板
-
-- [`brand-facts.yaml`](templates/brand-facts.yaml)：品牌事实库；
-- [`claims-and-sources.csv`](templates/claims-and-sources.csv)：声明与来源；
-- [`question-map.csv`](templates/question-map.csv)：用户问题地图；
-- [`baseline-query-set.csv`](templates/baseline-query-set.csv)：中英文基线问题集；
-- [`weekly-monitoring.csv`](templates/weekly-monitoring.csv)：逐次监测；
-- [`content-brief.md`](templates/content-brief.md)：内容 Brief；
-- [`lead-attribution.csv`](templates/lead-attribution.csv)：询盘与订单归因；
-- [`engine-run.schema.json`](schemas/engine-run.schema.json)：机器可读运行记录。
 
 ## 四个指标必须分开
 
@@ -279,6 +326,7 @@ not_provided   来源未提供
 ```text
 GEO-Master/
 ├── .agents/skills/  # 可调用 GEO Agent Skills
+├── assets/          # README 与文档视觉资产（WebP）
 ├── cases/           # 案例、证据核验与失败模式
 ├── playbooks/       # 可执行流程
 ├── explainers/      # 指标、机制与边界
@@ -312,13 +360,14 @@ GEO-Master/
 - [案例库](cases/README.md)
 - [AI 可见性基线测试](playbooks/ai-visibility-baseline.md)
 - [模板与数据资产](templates/README.md)
+- [视觉资产库](assets/geo-master/README.md)
 - [证据标准](EVIDENCE-STANDARD.md)
 - [90 天路线图](ROADMAP.md)
 - [GitHub 搜索发现性检查表](docs/REPOSITORY-DISCOVERY.md)
 
 ## 企业落地
 
-开源仓库提供方法、模板、代码、案例和证据标准。希望用于真实企业业务，可以查看维护者提供的 [GEO 产品化方案](https://tst.ahupo.cn/intro?utm_source=github&utm_medium=repository&utm_campaign=geo-master&utm_content=readme-enterprise)。商业产品与开源内容相互独立，不降低仓库的案例核验和证据要求。
+开源仓库提供方法、模板、代码、案例和证据标准。希望用于真实企业业务，可以查看维护者提供的 **[GEO 产品化方案](https://tst.ahupo.cn/intro/)**。商业产品与开源内容相互独立，不降低仓库的案例核验和证据要求。
 
 ## 贡献
 
