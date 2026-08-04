@@ -15,7 +15,7 @@
 > 面向真实品牌的网站审计、AI 可见性监测、内容工程与持续运营：**[立即查看产品介绍 →](https://tst.ahupo.cn/intro/)**
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-hero.webp" alt="GEO-Master AI Search 与 AI Visibility 总览" width="100%" />
+  <img src="assets/geo-master/geo-master-hero.svg" alt="GEO-Master AI Search 与 AI Visibility 总览" width="100%" />
 </p>
 
 GEO-Master 面向两类真实场景：
@@ -24,7 +24,7 @@ GEO-Master 面向两类真实场景：
 - **国内 AI 搜索**：DeepSeek、豆包、腾讯元宝、Kimi、通义千问等中文 AI 平台。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-china-global-ai-search.webp" alt="GEO-Master 国内与全球 AI 搜索生态" width="100%" />
+  <img src="assets/geo-master/geo-master-china-global-ai-search.svg" alt="GEO-Master 国内与全球 AI 搜索生态" width="100%" />
 </p>
 
 项目研究品牌如何在生成式平台中：
@@ -38,7 +38,7 @@ GEO-Master 面向两类真实场景：
 ## 一张图看懂 GEO-Master
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-overview.webp" alt="GEO-Master 十项核心能力总览" width="100%" />
+  <img src="assets/geo-master/geo-master-overview.svg" alt="GEO-Master 十项核心能力总览" width="100%" />
 </p>
 
 > 图中数值、品牌和界面数据仅用于解释能力与信息结构，不代表真实客户、真实平台排名或正式 Benchmark 结果。真实结论必须来自仓库记录的基线、原始回答、证据与复测数据。
@@ -64,7 +64,7 @@ GEO-Master 面向两类真实场景：
 先回答一个基础问题：网站是否具备被 AI 搜索系统发现、抓取、理解和引用的条件。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-website-audit.webp" alt="GEO-Master 网站 GEO 审计维度" width="100%" />
+  <img src="assets/geo-master/geo-master-website-audit.svg" alt="GEO-Master 网站 GEO 审计维度" width="100%" />
 </p>
 
 GEO-Master 将审计结果拆成可追溯 Finding，而不是只保留一个总分。GeoReady Adapter 可以保存原始报告、标准化问题、生成整改清单，并在优化后复测差异。
@@ -82,7 +82,7 @@ python scripts/geoready_audit_adapter.py \
 没有基线，就无法严谨判断 GEO 是否真的提升。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-ai-visibility-baseline.webp" alt="GEO-Master AI 可见性基线测试" width="100%" />
+  <img src="assets/geo-master/geo-master-ai-visibility-baseline.svg" alt="GEO-Master AI 可见性基线测试" width="100%" />
 </p>
 
 第一次使用，建议先复制三个文件：
@@ -107,7 +107,7 @@ python scripts/geoready_audit_adapter.py \
 GEO 不是单个平台优化。不同模型、不同地区、Web/App、登录状态和搜索模式都可能产生不同答案。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-multi-model-monitoring.webp" alt="GEO-Master 多模型 AI 可见性监测" width="100%" />
+  <img src="assets/geo-master/geo-master-multi-model-monitoring.svg" alt="GEO-Master 多模型 AI 可见性监测" width="100%" />
 </p>
 
 仓库提供统一的监测运行 Schema、外部数据导入器与聚合脚本，用于跟踪：
@@ -123,7 +123,7 @@ GEO 不是单个平台优化。不同模型、不同地区、Web/App、登录状
 AI 可见性不能建立在错误事实之上。品牌名称、型号、参数、日期、价格、认证和售后信息需要有可追溯来源。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-facts-governance.webp" alt="GEO-Master 品牌事实与证据治理" width="100%" />
+  <img src="assets/geo-master/geo-master-facts-governance.svg" alt="GEO-Master 品牌事实与证据治理" width="100%" />
 </p>
 
 核心资产：
@@ -137,7 +137,7 @@ AI 可见性不能建立在错误事实之上。品牌名称、型号、参数�
 GEO 内容不是“批量写文章”，而是从真实问题、事实证据和内容缺口出发，经过审核、发布和复测形成闭环。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-content-workflow.webp" alt="GEO-Master 内容工程与优化验证闭环" width="100%" />
+  <img src="assets/geo-master/geo-master-content-workflow.svg" alt="GEO-Master 内容工程与优化验证闭环" width="100%" />
 </p>
 
 典型链路：
@@ -157,7 +157,7 @@ GEO 内容不是“批量写文章”，而是从真实问题、事实证据和�
 单次截图只能证明“某一次出现过”。GEO-Master 更强调固定变量、重复运行、前后对照和完整证据链。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-reproducible-experiments.webp" alt="GEO-Master 可复现实验设计" width="100%" />
+  <img src="assets/geo-master/geo-master-reproducible-experiments.svg" alt="GEO-Master 可复现实验设计" width="100%" />
 </p>
 
 ## Schema 与数据模板
@@ -165,7 +165,7 @@ GEO 内容不是“批量写文章”，而是从真实问题、事实证据和�
 数据资产优先使用机器可读格式，方便不同 Agent、CLI、监测器和企业系统复用。
 
 <p align="center">
-  <img src="assets/geo-master/geo-master-schemas-templates.webp" alt="GEO-Master Schema 与数据模板" width="100%" />
+  <img src="assets/geo-master/geo-master-schemas-templates.svg" alt="GEO-Master Schema 与数据模板" width="100%" />
 </p>
 
 主要资产包括：CSV、YAML、JSON Schema、JSONL 运行记录、内容 Brief、监测表和业务归因表。完整入口见 [模板与数据资产](templates/README.md) 与 [数据规范](data/README.md)。
@@ -326,7 +326,7 @@ not_provided   来源未提供
 ```text
 GEO-Master/
 ├── .agents/skills/  # 可调用 GEO Agent Skills
-├── assets/          # README 与文档视觉资产（WebP）
+├── assets/          # README 与文档视觉资产（SVG 主图 + WebP 备份）
 ├── cases/           # 案例、证据核验与失败模式
 ├── playbooks/       # 可执行流程
 ├── explainers/      # 指标、机制与边界
